@@ -21,6 +21,8 @@ const fmt2 = (n) =>
 export default function Simulator() {
   const [propertyValue, setPropertyValue] = useState(200000);
   const [loanAmount, setLoanAmount] = useState(60000);
+  const [propertyValueText, setPropertyValueText] = useState("200000");
+  const [loanAmountText, setLoanAmountText] = useState("60000");
   const annualRate = 18; // tasa fija anual en USD
   const [termMonths, setTermMonths] = useState(36);
   const [system, setSystem] = useState("frances");
@@ -34,9 +36,12 @@ export default function Simulator() {
   );
   const ltvValid = ltv <= 35.01;
 
-  // Clamp loan to max
+  // Clamp loan to max when property changes
   useEffect(() => {
-    if (loanAmount > maxLoan) setLoanAmount(maxLoan);
+    if (loanAmount > maxLoan) {
+      setLoanAmount(maxLoan);
+      setLoanAmountText(String(maxLoan));
+    }
   }, [maxLoan]); // eslint-disable-line
 
   const calc = async () => {
@@ -105,12 +110,12 @@ export default function Simulator() {
       ["Sistema", sysLabel],
       ["Valor de la propiedad", fmt(propertyValue)],
       ["Monto solicitado", fmt(loanAmount)],
-      ["Relación LTV", `${result.ltv_percent.toFixed(2)}% (límite 35%)`],
-      ["Tasa anual (USD)", `${annualRate.toFixed(2)}%`],
+      ["Relación solicitado / valor", `${result.ltv_percent.toFixed(2)}% (máximo 35%)`],
+      ["Tasa anual fija (USD)", `${annualRate.toFixed(2)}%`],
       ["Plazo", `${termMonths} cuotas`],
       ["Cuota mensual", fmt(result.monthly_payment)],
       ["Intereses totales", fmt(result.total_interest)],
-      ["Total a pagar", fmt(result.total_paid)],
+      ["Comisiones y gastos extra", "Sin cargo (USD 0)"],
     ];
     if (system === "americano") {
       lines.push(["Cuota final (capital)", fmt(result.final_balloon)]);
@@ -180,7 +185,7 @@ export default function Simulator() {
     doc.setFont("helvetica", "bold");
     doc.text("Contacto:", M, y);
     doc.setFont("helvetica", "normal");
-    doc.text("sansebastianhipotecas@gmail.com · WhatsApp +54 9 11 2470-6405 · CABA & GBA", M + 50, y);
+    doc.text("sansebastianhipotecas@gmail.com · WhatsApp +54 9 11 2470-6405 · CABA y algunas zonas de GBA", M + 50, y);
 
     doc.save(`simulacion-hipoteca-san-sebastian-${Date.now()}.pdf`);
   };
@@ -210,6 +215,7 @@ export default function Simulator() {
           <p className="mt-5 text-[#9CA3AF] text-base lg:text-lg max-w-2xl">
             Movés los controles y ves al instante cuánto pagás por mes,
             cuánto vas a pagar en total y cómo se compone cada cuota.
+            <span className="block mt-2 text-[#CBA153]">Sin comisiones ni gastos extra.</span>
           </p>
         </motion.div>
 
@@ -247,38 +253,75 @@ export default function Simulator() {
               </div>
 
               {/* Property value */}
-              <Field
-                label="Valor de la propiedad (USD)"
-                value={fmt(propertyValue)}
-                testid="property-value-display"
-              >
-                <Slider
-                  value={[propertyValue]}
-                  onValueChange={(v) => setPropertyValue(v[0])}
-                  min={1000}
-                  max={1500000}
-                  step={1000}
-                  data-testid="property-value-slider"
-                />
-                <RangeLabels left="USD 1.000" right="USD 1.500.000" />
-              </Field>
+              <div data-testid="property-value-field">
+                <label className="block text-xs uppercase tracking-[0.22em] text-[#9CA3AF] mb-3">
+                  Valor de la propiedad (USD)
+                </label>
+                <div className="flex items-baseline gap-3 border-b border-white/15 focus-within:border-[#CBA153] transition-colors">
+                  <span className="font-serif-display text-[#CBA153] text-2xl">US$</span>
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    value={propertyValueText}
+                    onChange={(e) => {
+                      const raw = e.target.value.replace(/[^\d]/g, "");
+                      setPropertyValueText(raw);
+                      const n = parseInt(raw || "0", 10);
+                      setPropertyValue(isNaN(n) ? 0 : n);
+                    }}
+                    onBlur={() => {
+                      if (!propertyValueText || parseInt(propertyValueText, 10) < 1000) {
+                        setPropertyValueText("1000");
+                        setPropertyValue(1000);
+                      }
+                    }}
+                    placeholder="200.000"
+                    className="bg-transparent flex-1 font-serif-display text-[#F3F2ED] text-2xl py-3 outline-none placeholder:text-white/20"
+                    data-testid="property-value-input"
+                  />
+                </div>
+                <div className="text-[11px] text-[#9CA3AF]/70 mt-2">
+                  Mínimo USD 1.000 · Ingresá el valor real de tasación.
+                </div>
+              </div>
 
               {/* Loan amount */}
-              <Field
-                label={`Monto solicitado (máx. ${fmt(maxLoan)} — 35% LTV)`}
-                value={fmt(loanAmount)}
-                testid="loan-amount-display"
-              >
-                <Slider
-                  value={[loanAmount]}
-                  onValueChange={(v) => setLoanAmount(v[0])}
-                  min={1000}
-                  max={Math.max(1000, maxLoan)}
-                  step={1000}
-                  data-testid="loan-amount-slider"
-                />
-                <RangeLabels left="USD 1.000" right={fmt(maxLoan)} />
-              </Field>
+              <div data-testid="loan-amount-field">
+                <div className="flex items-baseline justify-between mb-3">
+                  <label className="text-xs uppercase tracking-[0.22em] text-[#9CA3AF]">
+                    Monto solicitado (USD)
+                  </label>
+                  <span className="text-[11px] text-[#9CA3AF]">
+                    Máx. {fmt(maxLoan)} <span className="text-[#CBA153]">— 35% LTV</span>
+                  </span>
+                </div>
+                <div className="flex items-baseline gap-3 border-b border-white/15 focus-within:border-[#CBA153] transition-colors">
+                  <span className="font-serif-display text-[#CBA153] text-2xl">US$</span>
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    value={loanAmountText}
+                    onChange={(e) => {
+                      const raw = e.target.value.replace(/[^\d]/g, "");
+                      setLoanAmountText(raw);
+                      const n = parseInt(raw || "0", 10);
+                      setLoanAmount(isNaN(n) ? 0 : n);
+                    }}
+                    onBlur={() => {
+                      if (!loanAmountText || parseInt(loanAmountText, 10) < 1000) {
+                        setLoanAmountText("1000");
+                        setLoanAmount(1000);
+                      }
+                    }}
+                    placeholder="60.000"
+                    className="bg-transparent flex-1 font-serif-display text-[#F3F2ED] text-2xl py-3 outline-none placeholder:text-white/20"
+                    data-testid="loan-amount-input"
+                  />
+                </div>
+                <div className="text-[11px] text-[#9CA3AF]/70 mt-2">
+                  Mínimo USD 1.000 · No puede superar el 35% del valor de la propiedad.
+                </div>
+              </div>
 
               {/* Rate (fija) */}
               <div data-testid="rate-fixed">
@@ -296,21 +339,36 @@ export default function Simulator() {
               </div>
 
               {/* Term */}
-              <Field
-                label="Plazo"
-                value={`${termMonths} cuotas`}
-                testid="term-display"
-              >
-                <Slider
-                  value={[termMonths]}
-                  onValueChange={(v) => setTermMonths(v[0])}
-                  min={6}
-                  max={60}
-                  step={1}
-                  data-testid="term-slider"
-                />
-                <RangeLabels left="6 cuotas" right="60 cuotas" />
-              </Field>
+              <div data-testid="term-field">
+                <div className="flex items-baseline justify-between mb-3">
+                  <label className="text-xs uppercase tracking-[0.22em] text-[#9CA3AF]">
+                    Plazo
+                  </label>
+                  <span className="font-serif-display text-[#F3F2ED] text-lg" data-testid="term-display">
+                    {termMonths} cuotas
+                  </span>
+                </div>
+                <div className="grid grid-cols-4 gap-2">
+                  {[24, 36, 48, 60].map((m) => (
+                    <button
+                      key={m}
+                      type="button"
+                      onClick={() => setTermMonths(m)}
+                      data-testid={`term-option-${m}`}
+                      className={`py-3 border text-center transition-all duration-300 ${
+                        termMonths === m
+                          ? "border-[#CBA153] bg-[#CBA153]/10 text-[#CBA153]"
+                          : "border-white/15 text-[#F3F2ED]/80 hover:border-white/30"
+                      }`}
+                    >
+                      <div className="font-serif-display text-xl leading-none">{m}</div>
+                      <div className="text-[10px] uppercase tracking-[0.15em] text-[#9CA3AF] mt-1">
+                        cuotas
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
 
@@ -331,6 +389,9 @@ export default function Simulator() {
               >
                 {loading ? "…" : fmt(result?.monthly_payment)}
               </div>
+              <div className="text-[11px] text-[#9CA3AF]/80 mt-3 italic">
+                * Los montos se redondean para facilitar el pago.
+              </div>
             </div>
 
             {system === "americano" && (
@@ -345,10 +406,10 @@ export default function Simulator() {
             )}
 
             <div className="mt-8 grid grid-cols-2 gap-4">
-              <Metric label="LTV" value={`${ltv.toFixed(1)}%`} valid={ltvValid} />
-              <Metric label="Total a pagar" value={fmt(result?.total_paid)} />
+              <Metric label="Solicitado" value={`${ltv.toFixed(1)}%`} valid={ltvValid} />
               <Metric label="Intereses totales" value={fmt(result?.total_interest)} />
               <Metric label="Plazo" value={`${termMonths} meses`} />
+              <Metric label="Tasa anual" value="18,00%" />
             </div>
 
             {!ltvValid && (
@@ -367,9 +428,29 @@ export default function Simulator() {
             {ltvValid && (
               <div className="mt-6 flex items-center gap-2 text-emerald-400/90 text-sm">
                 <Check size={16} />
-                <span>Dentro del límite del 35% LTV</span>
+                <span>Dentro del límite del 35% del valor de la propiedad</span>
               </div>
             )}
+
+            <div
+              className="mt-5 p-5 border-2 border-[#CBA153] bg-gradient-to-br from-[#CBA153]/15 to-[#CBA153]/5 shadow-[0_0_24px_rgba(203,161,83,0.15)]"
+              data-testid="no-fees-note"
+            >
+              <div className="flex items-start gap-3">
+                <div className="w-9 h-9 bg-[#CBA153] text-[#080A0F] flex items-center justify-center shrink-0">
+                  <Check size={20} strokeWidth={3} />
+                </div>
+                <div>
+                  <div className="font-serif-display text-[#CBA153] text-xl leading-tight">
+                    Sin comisiones. Sin gastos extra.
+                  </div>
+                  <div className="text-[12px] text-[#F3F2ED]/85 leading-relaxed mt-1.5">
+                    La cuota que ves es <span className="text-[#F3F2ED] font-medium">todo lo que pagás</span>.
+                    Cero cargos de administración, originación, mantenimiento ni costos ocultos.
+                  </div>
+                </div>
+              </div>
+            </div>
 
             <a
               href="#contacto"

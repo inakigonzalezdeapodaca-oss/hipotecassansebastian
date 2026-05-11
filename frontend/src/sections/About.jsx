@@ -78,10 +78,12 @@ export default function About() {
           {/* Text block */}
           <div className="md:col-span-8 bg-[#121620] border border-white/10 p-8 lg:p-10">
             <h3 className="font-serif-display text-2xl lg:text-3xl text-[#F3F2ED] font-light mb-4">
-              Conocemos cada calle de Buenos Aires.
+              Oficinas privadas en CABA. Conocemos cada calle de Buenos Aires.
             </h3>
             <p className="text-[#9CA3AF] leading-relaxed">
-              Operamos exclusivamente en Capital Federal y Gran Buenos Aires.
+              Atendemos en nuestras <span className="text-[#F3F2ED]">oficinas privadas en Capital Federal</span>,
+              donde recibimos a cada cliente con una entrevista personal. Operamos
+              exclusivamente en Capital Federal (CABA) y en algunas zonas de Gran Buenos Aires.
               Trabajamos solo en dólares estadounidenses y financiamos hasta el 35% del valor
               de tu propiedad. Cada hipoteca se evalúa con criterio profesional, sin
               algoritmos opacos, y se firma con escribano público.
@@ -89,9 +91,9 @@ export default function About() {
             <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
               {[
                 ["USD", "Solo dólares"],
-                ["CABA + GBA", "Zona de cobertura"],
-                ["35% LTV", "Financiación máx."],
-                ["60 cuotas", "Plazo máx."],
+                ["CABA", "Oficinas privadas"],
+                ["35%", "Financiación máx."],
+                ["24–60", "Cuotas"],
               ].map(([h, d]) => (
                 <div key={h} className="border-t border-white/10 pt-3">
                   <div className="font-serif-display text-[#CBA153] text-lg">{h}</div>

@@ -13,27 +13,27 @@ const faqs = [
   },
   {
     q: "¿Hasta qué porcentaje del valor de la propiedad financian?",
-    a: "Financiamos hasta el 35% del valor de tasación de la propiedad. Es una relación préstamo-valor (LTV) conservadora, pensada para minimizar el riesgo tanto del prestatario como del prestamista.",
+    a: "Financiamos hasta el 35% del valor de tasación de la propiedad.",
   },
   {
     q: "¿En qué zonas operan?",
-    a: "Trabajamos únicamente en Capital Federal y Gran Buenos Aires. Esto nos permite conocer cada barrio, tasar con precisión y acompañar la operación de cerca.",
+    a: "Trabajamos únicamente en Capital Federal (CABA) y en algunas zonas de Gran Buenos Aires. Esto nos permite conocer cada barrio, tasar con precisión y acompañar la operación de cerca.",
   },
   {
-    q: "¿Cuál es el plazo máximo?",
-    a: "Otorgamos plazos de hasta 60 cuotas (5 años). Podés elegir plazos menores si querés cancelar más rápido.",
-  },
-  {
-    q: "¿Cuál es la diferencia entre sistema francés y americano?",
-    a: "En el sistema francés pagás una cuota fija todos los meses (combinación de capital + intereses). En el sistema americano pagás solamente los intereses cada mes y devolvés el capital total en la última cuota. Mirá la sección 'Sistemas' para una explicación visual.",
+    q: "¿Cuál es el plazo del crédito?",
+    a: "Otorgamos plazos de 24 a 60 cuotas (de 2 a 5 años). En el simulador podés elegir entre 24, 36, 48 o 60 cuotas.",
   },
   {
     q: "¿Qué requisitos necesito?",
-    a: "Ser propietario o estar por escriturar una propiedad en CABA o GBA, contar con documentación al día y aprobar la tasación que realizamos. Cada caso se evalúa individualmente con un asesor.",
+    a: "Mostrar capacidad de pago, que la propiedad sea apta para constituir un crédito hipotecario y, finalmente, el inversor es quien decide la aprobación de la operación.",
   },
   {
     q: "¿La operación se hace por escritura pública?",
-    a: "Sí. Toda hipoteca se formaliza en escritura pública ante escribano. Podés elegir tu escribanía de confianza o usar las de nuestra red.",
+    a: "Sí. Toda hipoteca se formaliza en escritura pública ante escribano.",
+  },
+  {
+    q: "¿Hay comisiones o gastos extra?",
+    a: "No. La cuota mensual que ves en el simulador es exactamente lo que pagás. Sin cargos de administración, originación, mantenimiento ni costos ocultos.",
   },
   {
     q: "¿Puedo cancelar el crédito antes de tiempo?",

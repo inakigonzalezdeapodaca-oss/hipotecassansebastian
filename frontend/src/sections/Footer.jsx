@@ -20,7 +20,8 @@ export default function Footer() {
             </div>
             <p className="mt-5 text-[#9CA3AF] text-sm leading-relaxed max-w-sm">
               Créditos hipotecarios privados en dólares estadounidenses.
-              Capital Federal y Gran Buenos Aires. 35 años, +1.000 hipotecas.
+              Oficinas privadas en Capital Federal (CABA) — operamos en CABA y
+              algunas zonas de Gran Buenos Aires. 35 años, +1.000 hipotecas.
             </p>
           </div>
 
@@ -72,7 +73,7 @@ export default function Footer() {
                   WhatsApp: +54 9 11 2470-6405
                 </a>
               </li>
-              <li className="text-[#9CA3AF]">Capital Federal &amp; Gran Buenos Aires</li>
+              <li className="text-[#9CA3AF]">Oficinas privadas en CABA · Operamos en CABA y algunas zonas de GBA</li>
               <li className="text-[#9CA3AF]">Operaciones en USD · Lun a Vie 10-18 hs</li>
             </ul>
           </div>

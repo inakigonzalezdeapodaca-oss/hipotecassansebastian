@@ -55,9 +55,9 @@ export default function Hero() {
           className="mt-8 max-w-2xl text-base sm:text-lg text-[#9CA3AF] leading-relaxed"
         >
           Financiamos hasta el <span className="text-[#F3F2ED]">35% del valor</span> de tu
-          propiedad en Capital Federal y Gran Buenos Aires.
-          Plazos de hasta <span className="text-[#F3F2ED]">60 cuotas</span>,
-          sistema francés o americano, sin sorpresas.
+          propiedad en Capital Federal (CABA) y en algunas zonas de Gran Buenos Aires.
+          Plazos de <span className="text-[#F3F2ED]">24 a 60 cuotas</span>,
+          sistema francés o americano. <span className="text-[#CBA153]">Sin comisiones ni gastos extra.</span>
         </motion.p>
 
         <motion.div
@@ -90,7 +90,7 @@ export default function Hero() {
           className="mt-12 flex items-center gap-2 text-[#9CA3AF] text-xs uppercase tracking-[0.25em]"
         >
           <MapPin size={14} className="text-[#CBA153]" />
-          <span>Capital Federal &amp; Gran Buenos Aires</span>
+          <span>Capital Federal (CABA) &amp; algunas zonas de Gran Buenos Aires</span>
         </motion.div>
       </div>
     </section>
