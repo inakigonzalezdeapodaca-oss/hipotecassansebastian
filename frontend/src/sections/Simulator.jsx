@@ -19,10 +19,10 @@ const fmt2 = (n) =>
   new Intl.NumberFormat("es-AR", { maximumFractionDigits: 0 }).format(n || 0);
 
 export default function Simulator() {
-  const [propertyValue, setPropertyValue] = useState(200000);
-  const [loanAmount, setLoanAmount] = useState(60000);
-  const [propertyValueText, setPropertyValueText] = useState("200000");
-  const [loanAmountText, setLoanAmountText] = useState("60000");
+  const [propertyValue, setPropertyValue] = useState(0);
+  const [loanAmount, setLoanAmount] = useState(0);
+  const [propertyValueText, setPropertyValueText] = useState("");
+  const [loanAmountText, setLoanAmountText] = useState("");
   const annualRate = 18; // tasa fija anual en USD
   const [termMonths, setTermMonths] = useState(36);
   const [system, setSystem] = useState("frances");
@@ -34,11 +34,12 @@ export default function Simulator() {
     () => (propertyValue > 0 ? (loanAmount / propertyValue) * 100 : 0),
     [loanAmount, propertyValue]
   );
-  const ltvValid = ltv <= 35.01;
+  const hasInputs = propertyValue > 0 && loanAmount > 0;
+  const ltvValid = hasInputs && ltv <= 35.01;
 
-  // Clamp loan to max when property changes
+  // Clamp loan to max when property changes (only if property has been set)
   useEffect(() => {
-    if (loanAmount > maxLoan) {
+    if (propertyValue > 0 && loanAmount > maxLoan) {
       setLoanAmount(maxLoan);
       setLoanAmountText(String(maxLoan));
     }
@@ -65,6 +66,10 @@ export default function Simulator() {
 
   // Auto-calc on first mount & whenever inputs change (debounced quickly)
   useEffect(() => {
+    if (!hasInputs) {
+      setResult(null);
+      return;
+    }
     const t = setTimeout(() => {
       if (ltvValid) calc();
     }, 250);
@@ -269,13 +274,7 @@ export default function Simulator() {
                       const n = parseInt(raw || "0", 10);
                       setPropertyValue(isNaN(n) ? 0 : n);
                     }}
-                    onBlur={() => {
-                      if (!propertyValueText || parseInt(propertyValueText, 10) < 1000) {
-                        setPropertyValueText("1000");
-                        setPropertyValue(1000);
-                      }
-                    }}
-                    placeholder="200.000"
+                    placeholder="Ej. 200.000"
                     className="bg-transparent flex-1 font-serif-display text-[#F3F2ED] text-2xl py-3 outline-none placeholder:text-white/20"
                     data-testid="property-value-input"
                   />
@@ -307,13 +306,7 @@ export default function Simulator() {
                       const n = parseInt(raw || "0", 10);
                       setLoanAmount(isNaN(n) ? 0 : n);
                     }}
-                    onBlur={() => {
-                      if (!loanAmountText || parseInt(loanAmountText, 10) < 1000) {
-                        setLoanAmountText("1000");
-                        setLoanAmount(1000);
-                      }
-                    }}
-                    placeholder="60.000"
+                    placeholder="Ej. 60.000"
                     className="bg-transparent flex-1 font-serif-display text-[#F3F2ED] text-2xl py-3 outline-none placeholder:text-white/20"
                     data-testid="loan-amount-input"
                   />
@@ -387,14 +380,16 @@ export default function Simulator() {
                 className="font-serif-display text-[#CBA153] text-5xl lg:text-6xl font-light leading-none mt-3 tracking-tight"
                 data-testid="result-monthly-payment"
               >
-                {loading ? "…" : fmt(result?.monthly_payment)}
+                {!hasInputs ? "US$ 0" : loading ? "…" : fmt(result?.monthly_payment)}
               </div>
               <div className="text-[11px] text-[#9CA3AF]/80 mt-3 italic">
-                * Los montos se redondean para facilitar el pago.
+                {hasInputs
+                  ? "* Los montos se redondean para facilitar el pago."
+                  : "Ingresá el valor de la propiedad y el monto que querés solicitar."}
               </div>
             </div>
 
-            {system === "americano" && (
+            {hasInputs && system === "americano" && (
               <div className="mt-2 p-4 border border-[#CBA153]/30 bg-[#CBA153]/5">
                 <div className="text-xs uppercase tracking-[0.2em] text-[#CBA153]">
                   Cuota final (capital)
@@ -406,13 +401,13 @@ export default function Simulator() {
             )}
 
             <div className="mt-8 grid grid-cols-2 gap-4">
-              <Metric label="Solicitado" value={`${ltv.toFixed(1)}%`} valid={ltvValid} />
-              <Metric label="Intereses totales" value={fmt(result?.total_interest)} />
+              <Metric label="Solicitado" value={hasInputs ? `${ltv.toFixed(1)}%` : "—"} valid={ltvValid || !hasInputs} />
+              <Metric label="Intereses totales" value={hasInputs ? fmt(result?.total_interest) : "—"} />
               <Metric label="Plazo" value={`${termMonths} meses`} />
               <Metric label="Tasa anual" value="18,00%" />
             </div>
 
-            {!ltvValid && (
+            {hasInputs && !ltvValid && (
               <div
                 className="mt-6 flex items-start gap-3 p-4 border border-red-500/40 bg-red-500/5 text-red-300 text-sm"
                 data-testid="ltv-warning"
@@ -425,7 +420,7 @@ export default function Simulator() {
               </div>
             )}
 
-            {ltvValid && (
+            {hasInputs && ltvValid && (
               <div className="mt-6 flex items-center gap-2 text-emerald-400/90 text-sm">
                 <Check size={16} />
                 <span>Dentro del límite del 35% del valor de la propiedad</span>
