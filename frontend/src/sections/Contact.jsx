@@ -104,7 +104,7 @@ export default function Contact() {
             </a>
 
             <a
-              href="https://wa.me/5491100000000?text=Hola%2C%20me%20interesa%20un%20cr%C3%A9dito%20hipotecario"
+              href="https://wa.me/5491124706405?text=Hola%2C%20me%20interesa%20un%20cr%C3%A9dito%20hipotecario"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-4 p-4 border border-white/10 hover:border-[#CBA153]/40 hover:bg-white/5 transition-all duration-300 group"
@@ -116,7 +116,7 @@ export default function Contact() {
               <div>
                 <div className="text-xs uppercase tracking-[0.2em] text-[#9CA3AF]">WhatsApp</div>
                 <div className="text-[#F3F2ED] text-sm group-hover:text-[#CBA153] transition-colors">
-                  Hablar con un asesor
+                  +54 9 11 2470-6405
                 </div>
               </div>
             </a>

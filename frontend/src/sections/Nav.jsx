@@ -6,7 +6,6 @@ const links = [
   { href: "#simulador", label: "Simulador" },
   { href: "#sistemas", label: "Sistemas" },
   { href: "#nosotros", label: "Nosotros" },
-  { href: "#como-funciona", label: "Cómo funciona" },
   { href: "#faq", label: "FAQ" },
   { href: "#contacto", label: "Contacto" },
 ];
@@ -35,12 +34,17 @@ export default function Nav() {
       data-testid="main-nav"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between py-4 lg:py-5">
-        <a href="#top" className="group flex flex-col leading-none" data-testid="logo-link">
-          <span className="font-serif-display text-[#F3F2ED] text-xl sm:text-2xl tracking-tight">
-            Hipotecas
+        <a href="#top" className="group flex items-center gap-3 leading-none" data-testid="logo-link">
+          <span className="inline-flex items-center justify-center w-11 h-11 sm:w-12 sm:h-12 bg-[#F3F2ED] p-1.5 shadow-[0_2px_12px_rgba(203,161,83,0.15)]">
+            <img src="/logo.jpeg" alt="Hipotecas San Sebastián" className="w-full h-full object-contain" />
           </span>
-          <span className="font-serif-display italic text-[#CBA153] text-sm sm:text-base -mt-0.5 tracking-wide">
-            San Sebastián
+          <span className="flex flex-col leading-none">
+            <span className="font-serif-display text-[#F3F2ED] text-lg sm:text-xl tracking-tight">
+              Hipotecas
+            </span>
+            <span className="font-serif-display italic text-[#CBA153] text-xs sm:text-sm -mt-0.5 tracking-wide">
+              San Sebastián
+            </span>
           </span>
         </a>
 

@@ -9,11 +9,16 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-16">
           <div className="md:col-span-5">
-            <div className="font-serif-display text-[#F3F2ED] text-2xl">
-              Hipotecas{" "}
-              <span className="italic text-[#CBA153]">San Sebastián</span>
+            <div className="flex items-center gap-4">
+              <span className="inline-flex items-center justify-center w-16 h-16 bg-[#F3F2ED] p-2 shrink-0">
+                <img src="/logo.jpeg" alt="Hipotecas San Sebastián" className="w-full h-full object-contain" />
+              </span>
+              <div className="font-serif-display text-[#F3F2ED] text-2xl leading-tight">
+                Hipotecas{" "}
+                <span className="italic text-[#CBA153]">San Sebastián</span>
+              </div>
             </div>
-            <p className="mt-4 text-[#9CA3AF] text-sm leading-relaxed max-w-sm">
+            <p className="mt-5 text-[#9CA3AF] text-sm leading-relaxed max-w-sm">
               Créditos hipotecarios privados en dólares estadounidenses.
               Capital Federal y Gran Buenos Aires. 35 años, +1.000 hipotecas.
             </p>
@@ -28,7 +33,6 @@ export default function Footer() {
                 ["#simulador", "Simulador"],
                 ["#sistemas", "Sistemas"],
                 ["#nosotros", "Nosotros"],
-                ["#como-funciona", "Cómo funciona"],
                 ["#faq", "Preguntas frecuentes"],
                 ["#contacto", "Contacto"],
               ].map(([h, l]) => (
@@ -55,6 +59,17 @@ export default function Footer() {
                   className="text-[#F3F2ED]/80 hover:text-[#CBA153] transition-colors"
                 >
                   sansebastianhipotecas@gmail.com
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://wa.me/5491124706405?text=Hola%2C%20me%20interesa%20un%20cr%C3%A9dito%20hipotecario"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#F3F2ED]/80 hover:text-[#CBA153] transition-colors"
+                  data-testid="footer-whatsapp-link"
+                >
+                  WhatsApp: +54 9 11 2470-6405
                 </a>
               </li>
               <li className="text-[#9CA3AF]">Capital Federal &amp; Gran Buenos Aires</li>

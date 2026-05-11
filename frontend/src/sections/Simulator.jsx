@@ -2,7 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { Slider } from "@/components/ui/slider";
-import { AlertCircle, Check } from "lucide-react";
+import { AlertCircle, Check, Download } from "lucide-react";
+import jsPDF from "jspdf";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -20,7 +21,7 @@ const fmt2 = (n) =>
 export default function Simulator() {
   const [propertyValue, setPropertyValue] = useState(200000);
   const [loanAmount, setLoanAmount] = useState(60000);
-  const [annualRate, setAnnualRate] = useState(10);
+  const annualRate = 18; // tasa fija anual en USD
   const [termMonths, setTermMonths] = useState(36);
   const [system, setSystem] = useState("frances");
   const [result, setResult] = useState(null);
@@ -65,6 +66,124 @@ export default function Simulator() {
     return () => clearTimeout(t);
     // eslint-disable-next-line
   }, [propertyValue, loanAmount, annualRate, termMonths, system]);
+
+  const downloadPdf = () => {
+    if (!result) return;
+    const doc = new jsPDF({ unit: "pt", format: "a4" });
+    const W = doc.internal.pageSize.getWidth();
+    const M = 48;
+    const today = new Date().toLocaleDateString("es-AR");
+    const sysLabel = system === "frances" ? "Sistema Francés (cuota fija)" : "Sistema Americano (solo intereses + capital al final)";
+
+    // Header band
+    doc.setFillColor(8, 10, 15);
+    doc.rect(0, 0, W, 90, "F");
+    doc.setTextColor(203, 161, 83);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(20);
+    doc.text("Hipotecas San Sebastián", M, 42);
+    doc.setTextColor(243, 242, 237);
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(10);
+    doc.text("Simulación de crédito hipotecario · USD", M, 62);
+    doc.setTextColor(156, 163, 175);
+    doc.setFontSize(9);
+    doc.text(`Emitido: ${today}`, M, 78);
+
+    let y = 130;
+    doc.setTextColor(20, 20, 20);
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(14);
+    doc.text("Resumen de la simulación", M, y);
+    y += 6;
+    doc.setDrawColor(203, 161, 83);
+    doc.setLineWidth(1);
+    doc.line(M, y, M + 60, y);
+    y += 24;
+
+    const lines = [
+      ["Sistema", sysLabel],
+      ["Valor de la propiedad", fmt(propertyValue)],
+      ["Monto solicitado", fmt(loanAmount)],
+      ["Relación LTV", `${result.ltv_percent.toFixed(2)}% (límite 35%)`],
+      ["Tasa anual (USD)", `${annualRate.toFixed(2)}%`],
+      ["Plazo", `${termMonths} cuotas`],
+      ["Cuota mensual", fmt(result.monthly_payment)],
+      ["Intereses totales", fmt(result.total_interest)],
+      ["Total a pagar", fmt(result.total_paid)],
+    ];
+    if (system === "americano") {
+      lines.push(["Cuota final (capital)", fmt(result.final_balloon)]);
+    }
+
+    doc.setFontSize(10.5);
+    lines.forEach(([k, v]) => {
+      doc.setFont("helvetica", "normal");
+      doc.setTextColor(90, 90, 90);
+      doc.text(k, M, y);
+      doc.setFont("helvetica", "bold");
+      doc.setTextColor(20, 20, 20);
+      doc.text(String(v), W - M, y, { align: "right" });
+      doc.setDrawColor(230, 230, 230);
+      doc.line(M, y + 6, W - M, y + 6);
+      y += 22;
+    });
+
+    // Schedule
+    y += 14;
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(12);
+    doc.setTextColor(20, 20, 20);
+    doc.text("Primeras 12 cuotas", M, y);
+    y += 6;
+    doc.setDrawColor(203, 161, 83);
+    doc.line(M, y, M + 60, y);
+    y += 18;
+
+    const headers = ["#", "Cuota", "Interés", "Capital", "Saldo"];
+    const colX = [M, M + 50, M + 160, M + 270, M + 380];
+    doc.setFontSize(9);
+    doc.setFont("helvetica", "bold");
+    doc.setTextColor(120, 120, 120);
+    headers.forEach((h, i) => doc.text(h, colX[i], y));
+    y += 4;
+    doc.setDrawColor(220, 220, 220);
+    doc.line(M, y + 2, W - M, y + 2);
+    y += 16;
+
+    doc.setFont("helvetica", "normal");
+    doc.setTextColor(40, 40, 40);
+    (result.schedule_preview || []).forEach((r) => {
+      doc.text(String(r.month), colX[0], y);
+      doc.text(fmt(r.payment), colX[1], y);
+      doc.text(fmt(r.interest), colX[2], y);
+      doc.text(fmt(r.principal), colX[3], y);
+      doc.text(fmt(r.balance), colX[4], y);
+      y += 16;
+    });
+
+    // Footer
+    y = doc.internal.pageSize.getHeight() - 80;
+    doc.setDrawColor(230, 230, 230);
+    doc.line(M, y, W - M, y);
+    y += 16;
+    doc.setFontSize(8.5);
+    doc.setTextColor(120, 120, 120);
+    doc.text(
+      "Cálculo orientativo. La aprobación final depende de tasación, antecedentes y condiciones acordadas con el asesor.",
+      M,
+      y,
+      { maxWidth: W - 2 * M }
+    );
+    y += 22;
+    doc.setTextColor(80, 80, 80);
+    doc.setFont("helvetica", "bold");
+    doc.text("Contacto:", M, y);
+    doc.setFont("helvetica", "normal");
+    doc.text("sansebastianhipotecas@gmail.com · WhatsApp +54 9 11 2470-6405 · CABA & GBA", M + 50, y);
+
+    doc.save(`simulacion-hipoteca-san-sebastian-${Date.now()}.pdf`);
+  };
 
   return (
     <section
@@ -136,12 +255,12 @@ export default function Simulator() {
                 <Slider
                   value={[propertyValue]}
                   onValueChange={(v) => setPropertyValue(v[0])}
-                  min={50000}
+                  min={1000}
                   max={1500000}
-                  step={5000}
+                  step={1000}
                   data-testid="property-value-slider"
                 />
-                <RangeLabels left="USD 50.000" right="USD 1.500.000" />
+                <RangeLabels left="USD 1.000" right="USD 1.500.000" />
               </Field>
 
               {/* Loan amount */}
@@ -153,30 +272,28 @@ export default function Simulator() {
                 <Slider
                   value={[loanAmount]}
                   onValueChange={(v) => setLoanAmount(v[0])}
-                  min={10000}
-                  max={Math.max(10000, maxLoan)}
+                  min={1000}
+                  max={Math.max(1000, maxLoan)}
                   step={1000}
                   data-testid="loan-amount-slider"
                 />
-                <RangeLabels left="USD 10.000" right={fmt(maxLoan)} />
+                <RangeLabels left="USD 1.000" right={fmt(maxLoan)} />
               </Field>
 
-              {/* Rate */}
-              <Field
-                label="Tasa anual (USD)"
-                value={`${annualRate.toFixed(1)}%`}
-                testid="rate-display"
-              >
-                <Slider
-                  value={[annualRate]}
-                  onValueChange={(v) => setAnnualRate(v[0])}
-                  min={6}
-                  max={15}
-                  step={0.25}
-                  data-testid="rate-slider"
-                />
-                <RangeLabels left="6%" right="15%" />
-              </Field>
+              {/* Rate (fija) */}
+              <div data-testid="rate-fixed">
+                <div className="flex items-baseline justify-between mb-3">
+                  <label className="text-xs uppercase tracking-[0.22em] text-[#9CA3AF]">
+                    Tasa anual fija (USD)
+                  </label>
+                  <span className="font-serif-display text-[#CBA153] text-lg">
+                    18,00%
+                  </span>
+                </div>
+                <div className="text-[11px] text-[#9CA3AF]/70 border-l-2 border-[#CBA153]/40 pl-3 leading-relaxed">
+                  Tasa institucional fija en dólares. No varía durante todo el plazo del crédito.
+                </div>
+              </div>
 
               {/* Term */}
               <Field
@@ -261,6 +378,16 @@ export default function Simulator() {
             >
               Solicitar este crédito
             </a>
+            <button
+              type="button"
+              onClick={downloadPdf}
+              disabled={!result || !ltvValid}
+              className="mt-3 inline-flex items-center justify-center gap-2 border border-white/20 text-[#F3F2ED] px-6 py-3 text-sm hover:border-[#CBA153] hover:text-[#CBA153] transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
+              data-testid="simulator-download-pdf"
+            >
+              <Download size={15} />
+              Descargar simulación en PDF
+            </button>
             <div className="text-[11px] text-[#9CA3AF] mt-3 leading-relaxed">
               * Cálculo orientativo. La aprobación final depende de tasación, antecedentes
               y condiciones acordadas con el asesor.
