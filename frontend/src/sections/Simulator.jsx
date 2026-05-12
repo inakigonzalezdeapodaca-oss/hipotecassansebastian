@@ -116,7 +116,7 @@ export default function Simulator() {
       ["Valor de la propiedad", fmt(propertyValue)],
       ["Monto solicitado", fmt(loanAmount)],
       ["Relación solicitado / valor", `${result.ltv_percent.toFixed(2)}% (máximo 35%)`],
-      ["Tasa anual fija (USD)", `${annualRate.toFixed(2)}%`],
+      ["Tasa mensual fija (USD)", `${(annualRate / 12).toFixed(2)}%`],
       ["Plazo", `${termMonths} cuotas`],
       ["Cuota mensual", fmt(result.monthly_payment)],
       ["Intereses totales", fmt(result.total_interest)],
@@ -316,14 +316,14 @@ export default function Simulator() {
                 </div>
               </div>
 
-              {/* Rate (fija) */}
+              {/* Rate (fija mensual) */}
               <div data-testid="rate-fixed">
                 <div className="flex items-baseline justify-between mb-3">
                   <label className="text-xs uppercase tracking-[0.22em] text-[#9CA3AF]">
-                    Tasa anual fija (USD)
+                    Tasa mensual fija (USD)
                   </label>
                   <span className="font-serif-display text-[#CBA153] text-lg">
-                    18,00%
+                    1,50%
                   </span>
                 </div>
                 <div className="text-[11px] text-[#9CA3AF]/70 border-l-2 border-[#CBA153]/40 pl-3 leading-relaxed">
@@ -404,7 +404,7 @@ export default function Simulator() {
               <Metric label="Solicitado" value={hasInputs ? `${ltv.toFixed(1)}%` : "—"} valid={ltvValid || !hasInputs} />
               <Metric label="Intereses totales" value={hasInputs ? fmt(result?.total_interest) : "—"} />
               <Metric label="Plazo" value={`${termMonths} meses`} />
-              <Metric label="Tasa anual" value="18,00%" />
+              <Metric label="Tasa mensual" value="1,50%" />
             </div>
 
             {hasInputs && !ltvValid && (
