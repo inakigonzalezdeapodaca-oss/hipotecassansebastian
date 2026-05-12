@@ -23,7 +23,7 @@ export default function Simulator() {
   const [loanAmount, setLoanAmount] = useState(0);
   const [propertyValueText, setPropertyValueText] = useState("");
   const [loanAmountText, setLoanAmountText] = useState("");
-  const annualRate = 17.5; // tasa fija anual en USD
+  const annualRate = 18; // tasa fija anual en USD
   const [termMonths, setTermMonths] = useState(36);
   const [system, setSystem] = useState("frances");
   const [result, setResult] = useState(null);
@@ -323,7 +323,7 @@ export default function Simulator() {
                     Tasa anual fija (USD)
                   </label>
                   <span className="font-serif-display text-[#CBA153] text-lg">
-                    17,50%
+                    18,00%
                   </span>
                 </div>
                 <div className="text-[11px] text-[#9CA3AF]/70 border-l-2 border-[#CBA153]/40 pl-3 leading-relaxed">
@@ -404,7 +404,7 @@ export default function Simulator() {
               <Metric label="Solicitado" value={hasInputs ? `${ltv.toFixed(1)}%` : "—"} valid={ltvValid || !hasInputs} />
               <Metric label="Intereses totales" value={hasInputs ? fmt(result?.total_interest) : "—"} />
               <Metric label="Plazo" value={`${termMonths} meses`} />
-              <Metric label="Tasa anual" value="17,50%" />
+              <Metric label="Tasa anual" value="18,00%" />
             </div>
 
             {hasInputs && !ltvValid && (
