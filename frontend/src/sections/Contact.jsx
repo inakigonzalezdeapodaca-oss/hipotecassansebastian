@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { toast } from "sonner";
-import { Send, Mail, MessageCircle } from "lucide-react";
+import { Send, Mail, MessageCircle, Instagram } from "lucide-react";
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
@@ -117,6 +117,23 @@ export default function Contact() {
                 <div className="text-xs uppercase tracking-[0.2em] text-[#9CA3AF]">WhatsApp</div>
                 <div className="text-[#F3F2ED] text-sm group-hover:text-[#CBA153] transition-colors">
                   +54 9 11 2470-6405
+                </div>
+              </div>
+            </a>
+            <a
+              href="https://instagram.com/hipotecas.sansebastian"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-4 p-4 border border-white/10 hover:border-[#CBA153]/40 hover:bg-white/5 transition-all duration-300 group"
+              data-testid="instagram-link"
+            >
+              <div className="w-10 h-10 border border-[#CBA153]/40 text-[#CBA153] flex items-center justify-center">
+                <Instagram size={18} />
+              </div>
+              <div>
+                <div className="text-xs uppercase tracking-[0.2em] text-[#9CA3AF]">Instagram</div>
+                <div className="text-[#F3F2ED] text-sm group-hover:text-[#CBA153] transition-colors">
+                  @hipotecas.sansebastian
                 </div>
               </div>
             </a>

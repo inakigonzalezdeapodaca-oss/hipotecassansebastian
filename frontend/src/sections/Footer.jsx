@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Instagram } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -23,6 +24,18 @@ export default function Footer() {
               Oficinas privadas en Capital Federal (CABA) — operamos en CABA y
               algunas zonas de Gran Buenos Aires. 35 años, +1.000 hipotecas.
             </p>
+            <a
+              href="https://instagram.com/hipotecas.sansebastian"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-6 inline-flex items-center gap-3 text-[#F3F2ED] hover:text-[#CBA153] transition-colors group"
+              data-testid="footer-instagram-link"
+            >
+              <span className="w-10 h-10 border border-[#CBA153]/40 group-hover:border-[#CBA153] flex items-center justify-center transition-colors">
+                <Instagram size={18} className="text-[#CBA153]" />
+              </span>
+              <span className="text-sm tracking-wide">@hipotecas.sansebastian</span>
+            </a>
           </div>
 
           <div className="md:col-span-3">

@@ -77,7 +77,23 @@ export default function Simulator() {
     // eslint-disable-next-line
   }, [propertyValue, loanAmount, annualRate, termMonths, system]);
 
-  const downloadPdf = () => {
+  const loadLogoDataUrl = async () => {
+    try {
+      const res = await fetch("/logo.jpeg");
+      const blob = await res.blob();
+      return await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onloadend = () => resolve(reader.result);
+        reader.onerror = reject;
+        reader.readAsDataURL(blob);
+      });
+    } catch (e) {
+      console.error("logo load failed", e);
+      return null;
+    }
+  };
+
+  const downloadPdf = async () => {
     if (!result) return;
     const doc = new jsPDF({ unit: "pt", format: "a4" });
     const W = doc.internal.pageSize.getWidth();
@@ -87,20 +103,30 @@ export default function Simulator() {
 
     // Header band
     doc.setFillColor(8, 10, 15);
-    doc.rect(0, 0, W, 90, "F");
+    doc.rect(0, 0, W, 110, "F");
+
+    // Logo (white tile on dark band, like the website)
+    const logoDataUrl = await loadLogoDataUrl();
+    if (logoDataUrl) {
+      doc.setFillColor(243, 242, 237);
+      doc.rect(M, 22, 64, 64, "F");
+      doc.addImage(logoDataUrl, "JPEG", M + 4, 26, 56, 56);
+    }
+
+    const textX = logoDataUrl ? M + 80 : M;
     doc.setTextColor(203, 161, 83);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(20);
-    doc.text("Hipotecas San Sebastián", M, 42);
+    doc.text("Hipotecas San Sebastián", textX, 50);
     doc.setTextColor(243, 242, 237);
     doc.setFont("helvetica", "normal");
     doc.setFontSize(10);
-    doc.text("Simulación de crédito hipotecario · USD", M, 62);
+    doc.text("Simulación de crédito hipotecario · USD", textX, 70);
     doc.setTextColor(156, 163, 175);
     doc.setFontSize(9);
-    doc.text(`Emitido: ${today}`, M, 78);
+    doc.text(`Emitido: ${today}`, textX, 86);
 
-    let y = 130;
+    let y = 150;
     doc.setTextColor(20, 20, 20);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(14);
@@ -190,7 +216,7 @@ export default function Simulator() {
     doc.setFont("helvetica", "bold");
     doc.text("Contacto:", M, y);
     doc.setFont("helvetica", "normal");
-    doc.text("sansebastianhipotecas@gmail.com · WhatsApp +54 9 11 2470-6405 · CABA y algunas zonas de GBA", M + 50, y);
+    doc.text("sansebastianhipotecas@gmail.com · WhatsApp +54 9 11 2470-6405 · Instagram @hipotecas.sansebastian · CABA y algunas zonas de GBA", M + 50, y, { maxWidth: W - M - 50 });
 
     doc.save(`simulacion-hipoteca-san-sebastian-${Date.now()}.pdf`);
   };
