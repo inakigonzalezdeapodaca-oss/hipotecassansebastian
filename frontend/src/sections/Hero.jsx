@@ -54,8 +54,9 @@ export default function Hero() {
           transition={{ duration: 0.9, ease, delay: 0.4 }}
           className="mt-8 max-w-2xl text-base sm:text-lg text-[#9CA3AF] leading-relaxed"
         >
+          Contamos con <span className="text-[#F3F2ED]">oficinas privadas en Capital Federal</span>.
           Financiamos hasta el <span className="text-[#F3F2ED]">35% del valor</span> de tu
-          propiedad en Capital Federal (CABA) y en algunas zonas de Gran Buenos Aires.
+          propiedad en CABA y en algunas zonas de Gran Buenos Aires.
           Plazos de <span className="text-[#F3F2ED]">24 a 60 cuotas</span>,
           sistema francés o americano. <span className="text-[#CBA153]">Sin comisiones ni gastos extra.</span>
         </motion.p>
