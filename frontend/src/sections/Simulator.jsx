@@ -410,7 +410,7 @@ export default function Simulator() {
               </div>
               <div className="text-[11px] text-[#9CA3AF]/80 mt-3 italic">
                 {hasInputs
-                  ? "* Los montos se redondean para facilitar el pago."
+                  ? ""
                   : "Ingresá el valor de la propiedad y el monto que querés solicitar."}
               </div>
             </div>
