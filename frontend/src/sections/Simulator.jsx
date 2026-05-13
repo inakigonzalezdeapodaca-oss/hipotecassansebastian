@@ -216,7 +216,7 @@ export default function Simulator() {
     doc.setFont("helvetica", "bold");
     doc.text("Contacto:", M, y);
     doc.setFont("helvetica", "normal");
-    doc.text("sansebastianhipotecas@gmail.com · WhatsApp +54 9 11 2470-6405 · Instagram @hipotecas.sansebastian · CABA y algunas zonas de GBA", M + 50, y, { maxWidth: W - M - 50 });
+    doc.text("WhatsApp +54 9 11 2470-6405 · Instagram @hipotecas.sansebastian · CABA y algunas zonas de GBA", M + 50, y, { maxWidth: W - M - 50 });
 
     doc.save(`simulacion-hipoteca-san-sebastian-${Date.now()}.pdf`);
   };

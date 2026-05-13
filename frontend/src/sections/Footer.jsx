@@ -69,14 +69,6 @@ export default function Footer() {
             <ul className="space-y-3 text-sm">
               <li>
                 <a
-                  href="mailto:sansebastianhipotecas@gmail.com"
-                  className="text-[#F3F2ED]/80 hover:text-[#CBA153] transition-colors"
-                >
-                  sansebastianhipotecas@gmail.com
-                </a>
-              </li>
-              <li>
-                <a
                   href="https://wa.me/5491124706405?text=Hola%2C%20me%20interesa%20un%20cr%C3%A9dito%20hipotecario"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -84,6 +76,16 @@ export default function Footer() {
                   data-testid="footer-whatsapp-link"
                 >
                   WhatsApp: +54 9 11 2470-6405
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://instagram.com/hipotecas.sansebastian"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#F3F2ED]/80 hover:text-[#CBA153] transition-colors"
+                >
+                  Instagram: @hipotecas.sansebastian
                 </a>
               </li>
               <li className="text-[#9CA3AF]">Oficinas privadas en CABA · Operamos en CABA y algunas zonas de GBA</li>
