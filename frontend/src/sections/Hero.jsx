@@ -18,8 +18,8 @@ export default function Hero() {
           className="w-full h-full object-cover"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#080A0F] via-[#080A0F]/70 to-[#080A0F]/40" />
-        <div className="absolute inset-0 bg-[#080A0F]/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0B1B33] via-[#0B1B33]/70 to-[#0B1B33]/40" />
+        <div className="absolute inset-0 bg-[#0B1B33]/30" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 lg:pb-24 w-full">
@@ -27,9 +27,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.0, ease, delay: 0.1 }}
-          className="flex items-center gap-3 text-[#CBA153] mb-6"
+          className="flex items-center gap-3 text-[#3D7A5F] mb-6"
         >
-          <span className="h-px w-12 bg-[#CBA153]" />
+          <span className="h-px w-12 bg-[#3D7A5F]" />
           <span className="text-xs uppercase tracking-[0.3em] font-medium">
             Créditos hipotecarios privados · USD
           </span>
@@ -39,10 +39,10 @@ export default function Hero() {
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease, delay: 0.2 }}
-          className="font-serif-display text-4xl sm:text-5xl lg:text-7xl font-light leading-[1.05] tracking-tight max-w-4xl text-[#F3F2ED]"
+          className="font-serif-display text-4xl sm:text-5xl lg:text-7xl font-light leading-[1.05] tracking-tight max-w-4xl text-[#FFFFFF]"
         >
           La hipoteca en{" "}
-          <span className="italic text-[#CBA153]">dólares</span> que
+          <span className="italic text-[#3D7A5F]">dólares</span> que
           construye patrimonio,
           <br className="hidden sm:block" />
           con la seriedad de tres décadas.
@@ -54,11 +54,11 @@ export default function Hero() {
           transition={{ duration: 0.9, ease, delay: 0.4 }}
           className="mt-8 max-w-2xl text-base sm:text-lg text-[#9CA3AF] leading-relaxed"
         >
-          Contamos con <span className="text-[#F3F2ED]">oficinas privadas en Capital Federal</span>.
-          Financiamos hasta el <span className="text-[#F3F2ED]">35% del valor</span> de tu
+          Contamos con <span className="text-[#FFFFFF]">oficinas privadas en Capital Federal</span>.
+          Financiamos hasta el <span className="text-[#FFFFFF]">35% del valor</span> de tu
           propiedad en CABA y en algunas zonas de Gran Buenos Aires.
-          Plazos de <span className="text-[#F3F2ED]">24 a 60 cuotas</span>,
-          sistema francés o americano. <span className="text-[#CBA153]">Sin comisiones ni gastos extra.</span>
+          Plazos de <span className="text-[#FFFFFF]">24 a 60 cuotas</span>,
+          sistema francés o americano. <span className="text-[#3D7A5F]">Sin comisiones ni gastos extra.</span>
         </motion.p>
 
         <motion.div
@@ -69,7 +69,7 @@ export default function Hero() {
         >
           <a
             href="#simulador"
-            className="group inline-flex items-center gap-3 bg-[#CBA153] text-[#080A0F] font-medium px-8 py-4 hover:bg-[#E1C07C] transition-all duration-300"
+            className="group inline-flex items-center gap-3 bg-[#3D7A5F] text-[#0B1B33] font-medium px-8 py-4 hover:bg-[#4F9577] transition-all duration-300"
             data-testid="hero-cta-simulador"
           >
             Simular mi crédito
@@ -77,7 +77,7 @@ export default function Hero() {
           </a>
           <a
             href="#contacto"
-            className="inline-flex items-center gap-3 border border-white/20 text-[#F3F2ED] px-8 py-4 hover:border-white/40 hover:bg-white/5 transition-all duration-300"
+            className="inline-flex items-center gap-3 border border-white/20 text-[#FFFFFF] px-8 py-4 hover:border-white/40 hover:bg-white/5 transition-all duration-300"
             data-testid="hero-cta-contacto"
           >
             Hablar con un asesor
@@ -90,7 +90,7 @@ export default function Hero() {
           transition={{ duration: 0.9, ease, delay: 0.8 }}
           className="mt-12 flex items-center gap-2 text-[#9CA3AF] text-xs uppercase tracking-[0.25em]"
         >
-          <MapPin size={14} className="text-[#CBA153]" />
+          <MapPin size={14} className="text-[#3D7A5F]" />
           <span>Capital Federal (CABA) &amp; algunas zonas de Gran Buenos Aires</span>
         </motion.div>
       </div>

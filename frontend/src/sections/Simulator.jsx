@@ -102,7 +102,7 @@ export default function Simulator() {
     const sysLabel = system === "frances" ? "Sistema Francés (cuota fija)" : "Sistema Americano (solo intereses + capital al final)";
 
     // Header band
-    doc.setFillColor(8, 10, 15);
+    doc.setFillColor(11, 27, 51);
     doc.rect(0, 0, W, 110, "F");
 
     // Logo (white tile on dark band, like the website)
@@ -114,7 +114,7 @@ export default function Simulator() {
     }
 
     const textX = logoDataUrl ? M + 80 : M;
-    doc.setTextColor(203, 161, 83);
+    doc.setTextColor(61, 122, 95);
     doc.setFont("helvetica", "bold");
     doc.setFontSize(20);
     doc.text("Hipotecas San Sebastián", textX, 50);
@@ -132,7 +132,7 @@ export default function Simulator() {
     doc.setFontSize(14);
     doc.text("Resumen de la simulación", M, y);
     y += 6;
-    doc.setDrawColor(203, 161, 83);
+    doc.setDrawColor(61, 122, 95);
     doc.setLineWidth(1);
     doc.line(M, y, M + 60, y);
     y += 24;
@@ -172,7 +172,7 @@ export default function Simulator() {
     doc.setTextColor(20, 20, 20);
     doc.text("Primeras 12 cuotas", M, y);
     y += 6;
-    doc.setDrawColor(203, 161, 83);
+    doc.setDrawColor(61, 122, 95);
     doc.line(M, y, M + 60, y);
     y += 18;
 
@@ -224,7 +224,7 @@ export default function Simulator() {
   return (
     <section
       id="simulador"
-      className="relative bg-[#080A0F] py-20 lg:py-32"
+      className="relative bg-[#0B1B33] py-20 lg:py-32"
       data-testid="simulator-section"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -235,22 +235,22 @@ export default function Simulator() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl mb-12 lg:mb-16"
         >
-          <div className="flex items-center gap-3 text-[#CBA153] mb-5">
-            <span className="h-px w-12 bg-[#CBA153]" />
+          <div className="flex items-center gap-3 text-[#3D7A5F] mb-5">
+            <span className="h-px w-12 bg-[#3D7A5F]" />
             <span className="text-xs uppercase tracking-[0.3em]">Simulador</span>
           </div>
           <h2 className="font-serif-display text-3xl sm:text-4xl lg:text-5xl font-light leading-tight">
             Calculá tu cuota en{" "}
-            <span className="italic text-[#CBA153]">dólares</span>
+            <span className="italic text-[#3D7A5F]">dólares</span>
           </h2>
           <p className="mt-5 text-[#9CA3AF] text-base lg:text-lg max-w-2xl">
             Movés los controles y ves al instante cuánto pagás por mes,
             cuánto vas a pagar en total y cómo se compone cada cuota.
-            <span className="block mt-2 text-[#CBA153]">Sin comisiones ni gastos extra.</span>
+            <span className="block mt-2 text-[#3D7A5F]">Sin comisiones ni gastos extra.</span>
           </p>
         </motion.div>
 
-        <div className="backdrop-blur-2xl bg-[#080A0F]/70 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)] grid grid-cols-1 lg:grid-cols-12 overflow-hidden">
+        <div className="backdrop-blur-2xl bg-[#0B1B33]/70 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)] grid grid-cols-1 lg:grid-cols-12 overflow-hidden">
           {/* INPUTS */}
           <div className="lg:col-span-7 p-6 sm:p-10 lg:p-12 border-b lg:border-b-0 lg:border-r border-white/10">
             <div className="space-y-10">
@@ -270,11 +270,11 @@ export default function Simulator() {
                       data-testid={`system-toggle-${opt.id}`}
                       className={`text-left p-4 border transition-all duration-300 ${
                         system === opt.id
-                          ? "border-[#CBA153] bg-[#CBA153]/5"
+                          ? "border-[#3D7A5F] bg-[#3D7A5F]/5"
                           : "border-white/15 hover:border-white/30"
                       }`}
                     >
-                      <div className="font-serif-display text-xl text-[#F3F2ED]">
+                      <div className="font-serif-display text-xl text-[#FFFFFF]">
                         {opt.label}
                       </div>
                       <div className="text-xs text-[#9CA3AF] mt-1">{opt.desc}</div>
@@ -288,8 +288,8 @@ export default function Simulator() {
                 <label className="block text-xs uppercase tracking-[0.22em] text-[#9CA3AF] mb-3">
                   Valor de la propiedad (USD)
                 </label>
-                <div className="flex items-baseline gap-3 border-b border-white/15 focus-within:border-[#CBA153] transition-colors">
-                  <span className="font-serif-display text-[#CBA153] text-2xl">US$</span>
+                <div className="flex items-baseline gap-3 border-b border-white/15 focus-within:border-[#3D7A5F] transition-colors">
+                  <span className="font-serif-display text-[#3D7A5F] text-2xl">US$</span>
                   <input
                     type="text"
                     inputMode="numeric"
@@ -301,7 +301,7 @@ export default function Simulator() {
                       setPropertyValue(isNaN(n) ? 0 : n);
                     }}
                     placeholder="Ej. 200.000"
-                    className="bg-transparent flex-1 font-serif-display text-[#F3F2ED] text-2xl py-3 outline-none placeholder:text-white/20"
+                    className="bg-transparent flex-1 font-serif-display text-[#FFFFFF] text-2xl py-3 outline-none placeholder:text-white/20"
                     data-testid="property-value-input"
                   />
                 </div>
@@ -317,11 +317,11 @@ export default function Simulator() {
                     Monto solicitado (USD)
                   </label>
                   <span className="text-[11px] text-[#9CA3AF]">
-                    Máx. {fmt(maxLoan)} <span className="text-[#CBA153]">— 35% LTV</span>
+                    Máx. {fmt(maxLoan)} <span className="text-[#3D7A5F]">— 35% LTV</span>
                   </span>
                 </div>
-                <div className="flex items-baseline gap-3 border-b border-white/15 focus-within:border-[#CBA153] transition-colors">
-                  <span className="font-serif-display text-[#CBA153] text-2xl">US$</span>
+                <div className="flex items-baseline gap-3 border-b border-white/15 focus-within:border-[#3D7A5F] transition-colors">
+                  <span className="font-serif-display text-[#3D7A5F] text-2xl">US$</span>
                   <input
                     type="text"
                     inputMode="numeric"
@@ -333,7 +333,7 @@ export default function Simulator() {
                       setLoanAmount(isNaN(n) ? 0 : n);
                     }}
                     placeholder="Ej. 60.000"
-                    className="bg-transparent flex-1 font-serif-display text-[#F3F2ED] text-2xl py-3 outline-none placeholder:text-white/20"
+                    className="bg-transparent flex-1 font-serif-display text-[#FFFFFF] text-2xl py-3 outline-none placeholder:text-white/20"
                     data-testid="loan-amount-input"
                   />
                 </div>
@@ -348,11 +348,11 @@ export default function Simulator() {
                   <label className="text-xs uppercase tracking-[0.22em] text-[#9CA3AF]">
                     Tasa mensual fija (USD)
                   </label>
-                  <span className="font-serif-display text-[#CBA153] text-lg">
+                  <span className="font-serif-display text-[#3D7A5F] text-lg">
                     1,50%
                   </span>
                 </div>
-                <div className="text-[11px] text-[#9CA3AF]/70 border-l-2 border-[#CBA153]/40 pl-3 leading-relaxed">
+                <div className="text-[11px] text-[#9CA3AF]/70 border-l-2 border-[#3D7A5F]/40 pl-3 leading-relaxed">
                   Tasa institucional fija en dólares. No varía durante todo el plazo del crédito.
                 </div>
               </div>
@@ -363,7 +363,7 @@ export default function Simulator() {
                   <label className="text-xs uppercase tracking-[0.22em] text-[#9CA3AF]">
                     Plazo
                   </label>
-                  <span className="font-serif-display text-[#F3F2ED] text-lg" data-testid="term-display">
+                  <span className="font-serif-display text-[#FFFFFF] text-lg" data-testid="term-display">
                     {termMonths} cuotas
                   </span>
                 </div>
@@ -376,8 +376,8 @@ export default function Simulator() {
                       data-testid={`term-option-${m}`}
                       className={`py-3 border text-center transition-all duration-300 ${
                         termMonths === m
-                          ? "border-[#CBA153] bg-[#CBA153]/10 text-[#CBA153]"
-                          : "border-white/15 text-[#F3F2ED]/80 hover:border-white/30"
+                          ? "border-[#3D7A5F] bg-[#3D7A5F]/10 text-[#3D7A5F]"
+                          : "border-white/15 text-[#FFFFFF]/80 hover:border-white/30"
                       }`}
                     >
                       <div className="font-serif-display text-xl leading-none">{m}</div>
@@ -392,9 +392,9 @@ export default function Simulator() {
           </div>
 
           {/* RESULTS */}
-          <div className="lg:col-span-5 bg-[#05070A] p-6 sm:p-10 lg:p-12 flex flex-col">
-            <div className="flex items-center gap-3 text-[#CBA153] mb-6">
-              <span className="h-px w-8 bg-[#CBA153]" />
+          <div className="lg:col-span-5 bg-[#07142A] p-6 sm:p-10 lg:p-12 flex flex-col">
+            <div className="flex items-center gap-3 text-[#3D7A5F] mb-6">
+              <span className="h-px w-8 bg-[#3D7A5F]" />
               <span className="text-xs uppercase tracking-[0.3em]">Resultado</span>
             </div>
 
@@ -403,7 +403,7 @@ export default function Simulator() {
                 {system === "frances" ? "Cuota mensual fija" : "Cuota mensual (intereses)"}
               </div>
               <div
-                className="font-serif-display text-[#CBA153] text-5xl lg:text-6xl font-light leading-none mt-3 tracking-tight"
+                className="font-serif-display text-[#3D7A5F] text-5xl lg:text-6xl font-light leading-none mt-3 tracking-tight"
                 data-testid="result-monthly-payment"
               >
                 {!hasInputs ? "US$ 0" : loading ? "…" : fmt(result?.monthly_payment)}
@@ -416,11 +416,11 @@ export default function Simulator() {
             </div>
 
             {hasInputs && system === "americano" && (
-              <div className="mt-2 p-4 border border-[#CBA153]/30 bg-[#CBA153]/5">
-                <div className="text-xs uppercase tracking-[0.2em] text-[#CBA153]">
+              <div className="mt-2 p-4 border border-[#3D7A5F]/30 bg-[#3D7A5F]/5">
+                <div className="text-xs uppercase tracking-[0.2em] text-[#3D7A5F]">
                   Cuota final (capital)
                 </div>
-                <div className="font-serif-display text-2xl text-[#F3F2ED] mt-1">
+                <div className="font-serif-display text-2xl text-[#FFFFFF] mt-1">
                   {fmt(result?.final_balloon)}
                 </div>
               </div>
@@ -454,19 +454,19 @@ export default function Simulator() {
             )}
 
             <div
-              className="mt-5 p-5 border-2 border-[#CBA153] bg-gradient-to-br from-[#CBA153]/15 to-[#CBA153]/5 shadow-[0_0_24px_rgba(203,161,83,0.15)]"
+              className="mt-5 p-5 border-2 border-[#3D7A5F] bg-gradient-to-br from-[#3D7A5F]/15 to-[#3D7A5F]/5 shadow-[0_0_24px_rgba(203,161,83,0.15)]"
               data-testid="no-fees-note"
             >
               <div className="flex items-start gap-3">
-                <div className="w-9 h-9 bg-[#CBA153] text-[#080A0F] flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 bg-[#3D7A5F] text-[#0B1B33] flex items-center justify-center shrink-0">
                   <Check size={20} strokeWidth={3} />
                 </div>
                 <div>
-                  <div className="font-serif-display text-[#CBA153] text-xl leading-tight">
+                  <div className="font-serif-display text-[#3D7A5F] text-xl leading-tight">
                     Sin comisiones. Sin gastos extra.
                   </div>
-                  <div className="text-[12px] text-[#F3F2ED]/85 leading-relaxed mt-1.5">
-                    La cuota que ves es <span className="text-[#F3F2ED] font-medium">todo lo que pagás</span>.
+                  <div className="text-[12px] text-[#FFFFFF]/85 leading-relaxed mt-1.5">
+                    La cuota que ves es <span className="text-[#FFFFFF] font-medium">todo lo que pagás</span>.
                     Cero cargos de administración, originación, mantenimiento ni costos ocultos.
                   </div>
                 </div>
@@ -475,7 +475,7 @@ export default function Simulator() {
 
             <a
               href="#contacto"
-              className="mt-auto pt-10 inline-flex items-center justify-center gap-2 bg-[#CBA153] text-[#080A0F] font-medium px-6 py-4 hover:bg-[#E1C07C] transition-all duration-300"
+              className="mt-auto pt-10 inline-flex items-center justify-center gap-2 bg-[#3D7A5F] text-[#0B1B33] font-medium px-6 py-4 hover:bg-[#4F9577] transition-all duration-300"
               data-testid="simulator-cta"
             >
               Solicitar este crédito
@@ -484,7 +484,7 @@ export default function Simulator() {
               type="button"
               onClick={downloadPdf}
               disabled={!result || !ltvValid}
-              className="mt-3 inline-flex items-center justify-center gap-2 border border-white/20 text-[#F3F2ED] px-6 py-3 text-sm hover:border-[#CBA153] hover:text-[#CBA153] transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
+              className="mt-3 inline-flex items-center justify-center gap-2 border border-white/20 text-[#FFFFFF] px-6 py-3 text-sm hover:border-[#3D7A5F] hover:text-[#3D7A5F] transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
               data-testid="simulator-download-pdf"
             >
               <Download size={15} />
@@ -509,7 +509,7 @@ function Field({ label, value, children, testid }) {
           {label}
         </label>
         <span
-          className="font-serif-display text-[#F3F2ED] text-lg"
+          className="font-serif-display text-[#FFFFFF] text-lg"
           data-testid={testid}
         >
           {value}
@@ -535,7 +535,7 @@ function Metric({ label, value, valid = true }) {
       <div className="text-[10px] uppercase tracking-[0.2em] text-[#9CA3AF]">{label}</div>
       <div
         className={`font-serif-display text-xl mt-1 ${
-          valid ? "text-[#F3F2ED]" : "text-red-400"
+          valid ? "text-[#FFFFFF]" : "text-red-400"
         }`}
       >
         {value}

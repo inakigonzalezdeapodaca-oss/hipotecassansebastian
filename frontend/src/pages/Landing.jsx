@@ -10,7 +10,7 @@ import Footer from "../sections/Footer";
 
 export default function Landing() {
   return (
-    <main className="relative min-h-screen bg-[#080A0F] text-[#F3F2ED]" data-testid="landing-page">
+    <main className="relative min-h-screen bg-[#0B1B33] text-[#FFFFFF]" data-testid="landing-page">
       <Nav />
       <Hero />
       <Stats />

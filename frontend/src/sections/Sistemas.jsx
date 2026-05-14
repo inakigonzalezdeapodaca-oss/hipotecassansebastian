@@ -34,7 +34,7 @@ export default function Sistemas() {
   return (
     <section
       id="sistemas"
-      className="relative bg-[#080A0F] py-20 lg:py-32 border-t border-white/5"
+      className="relative bg-[#0B1B33] py-20 lg:py-32 border-t border-white/5"
       data-testid="sistemas-section"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -45,13 +45,13 @@ export default function Sistemas() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl mb-14"
         >
-          <div className="flex items-center gap-3 text-[#CBA153] mb-5">
-            <span className="h-px w-12 bg-[#CBA153]" />
+          <div className="flex items-center gap-3 text-[#3D7A5F] mb-5">
+            <span className="h-px w-12 bg-[#3D7A5F]" />
             <span className="text-xs uppercase tracking-[0.3em]">Sistemas explicados simple</span>
           </div>
           <h2 className="font-serif-display text-3xl sm:text-4xl lg:text-5xl font-light leading-tight">
             Dos maneras de pagar.{" "}
-            <span className="italic text-[#CBA153]">Vos elegís</span>.
+            <span className="italic text-[#3D7A5F]">Vos elegís</span>.
           </h2>
         </motion.div>
 
@@ -65,21 +65,21 @@ export default function Sistemas() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
-                className="relative bg-[#121620] border border-white/10 p-8 lg:p-10 group hover:border-[#CBA153]/40 transition-all duration-500"
+                className="relative bg-[#15263F] border border-white/10 p-8 lg:p-10 group hover:border-[#3D7A5F]/40 transition-all duration-500"
                 data-testid={`sistema-card-${c.id}`}
               >
-                <div className="w-12 h-12 border border-[#CBA153]/40 text-[#CBA153] flex items-center justify-center mb-6">
+                <div className="w-12 h-12 border border-[#3D7A5F]/40 text-[#3D7A5F] flex items-center justify-center mb-6">
                   <Icon size={22} />
                 </div>
-                <h3 className="font-serif-display text-3xl lg:text-4xl text-[#F3F2ED] font-light">
+                <h3 className="font-serif-display text-3xl lg:text-4xl text-[#FFFFFF] font-light">
                   {c.title}
                 </h3>
-                <div className="text-[#CBA153] text-sm italic mt-1">{c.subtitle}</div>
+                <div className="text-[#3D7A5F] text-sm italic mt-1">{c.subtitle}</div>
                 <p className="text-[#9CA3AF] mt-6 leading-relaxed">{c.body}</p>
                 <ul className="mt-6 space-y-2 text-sm">
                   {c.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-3 text-[#F3F2ED]/90">
-                      <span className="mt-2 h-px w-4 bg-[#CBA153]" />
+                    <li key={b} className="flex items-start gap-3 text-[#FFFFFF]/90">
+                      <span className="mt-2 h-px w-4 bg-[#3D7A5F]" />
                       <span>{b}</span>
                     </li>
                   ))}
@@ -94,14 +94,14 @@ export default function Sistemas() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="mt-10 p-6 lg:p-8 border border-white/10 bg-[#05070A] flex flex-col md:flex-row md:items-center gap-4 md:justify-between"
+          className="mt-10 p-6 lg:p-8 border border-white/10 bg-[#07142A] flex flex-col md:flex-row md:items-center gap-4 md:justify-between"
         >
           <div className="text-[#9CA3AF] text-sm">
             ¿Querés ver la diferencia en números? Probá el simulador.
           </div>
           <a
             href="#simulador"
-            className="self-start md:self-auto border border-white/20 text-[#F3F2ED] px-6 py-3 text-sm hover:border-[#CBA153] hover:text-[#CBA153] transition-all duration-300"
+            className="self-start md:self-auto border border-white/20 text-[#FFFFFF] px-6 py-3 text-sm hover:border-[#3D7A5F] hover:text-[#3D7A5F] transition-all duration-300"
           >
             Ir al simulador
           </a>

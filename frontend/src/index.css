@@ -3,12 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --bg: #080A0F;
-  --surface: #121620;
-  --surface-deep: #05070A;
-  --primary: #CBA153;
-  --primary-hover: #E1C07C;
-  --text-main: #F3F2ED;
+  --bg: #0B1B33;
+  --surface: #15263F;
+  --surface-deep: #07142A;
+  --primary: #3D7A5F;
+  --primary-hover: #4F9577;
+  --text-main: #FFFFFF;
   --text-muted: #9CA3AF;
   --border-soft: rgba(255, 255, 255, 0.1);
 }
@@ -56,11 +56,11 @@ html, body {
   background: rgba(255, 255, 255, 0.08) !important;
 }
 [data-slot="slider-range"] {
-  background: linear-gradient(90deg, #CBA153, #E1C07C) !important;
+  background: linear-gradient(90deg, #3D7A5F, #4F9577) !important;
 }
 [data-slot="slider-thumb"] {
-  background: #F3F2ED !important;
-  border: 2px solid #CBA153 !important;
+  background: #FFFFFF !important;
+  border: 2px solid #3D7A5F !important;
   width: 18px !important;
   height: 18px !important;
 }
@@ -71,7 +71,7 @@ html, body {
 
 @layer base {
   body {
-    @apply bg-[#080A0F] text-[#F3F2ED];
+    @apply bg-[#0B1B33] text-white;
   }
 }
 

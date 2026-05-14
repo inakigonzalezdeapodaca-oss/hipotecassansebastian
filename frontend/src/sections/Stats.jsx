@@ -9,7 +9,7 @@ const items = [
 
 export default function Stats() {
   return (
-    <section className="relative bg-[#080A0F] border-y border-white/10" data-testid="stats-section">
+    <section className="relative bg-[#0B1B33] border-y border-white/10" data-testid="stats-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16 grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
         {items.map((it, i) => (
           <motion.div
@@ -20,7 +20,7 @@ export default function Stats() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.08 }}
             data-testid={`stat-${i}`}
           >
-            <div className="font-serif-display text-[#CBA153] text-5xl sm:text-6xl lg:text-7xl font-light leading-none tracking-tight">
+            <div className="font-serif-display text-[#3D7A5F] text-5xl sm:text-6xl lg:text-7xl font-light leading-none tracking-tight">
               {it.num}
               {it.suf && (
                 <span className="text-sm sm:text-base text-[#9CA3AF] ml-2 font-body italic">

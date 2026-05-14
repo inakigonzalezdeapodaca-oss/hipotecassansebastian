@@ -31,7 +31,7 @@ export default function HowItWorks() {
   return (
     <section
       id="como-funciona"
-      className="relative bg-[#080A0F] py-20 lg:py-32 border-t border-white/5"
+      className="relative bg-[#0B1B33] py-20 lg:py-32 border-t border-white/5"
       data-testid="how-section"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,12 +42,12 @@ export default function HowItWorks() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl mb-14"
         >
-          <div className="flex items-center gap-3 text-[#CBA153] mb-5">
-            <span className="h-px w-12 bg-[#CBA153]" />
+          <div className="flex items-center gap-3 text-[#3D7A5F] mb-5">
+            <span className="h-px w-12 bg-[#3D7A5F]" />
             <span className="text-xs uppercase tracking-[0.3em]">Cómo funciona</span>
           </div>
           <h2 className="font-serif-display text-3xl sm:text-4xl lg:text-5xl font-light leading-tight">
-            Cuatro pasos. <span className="italic text-[#CBA153]">Cero sorpresas.</span>
+            Cuatro pasos. <span className="italic text-[#3D7A5F]">Cero sorpresas.</span>
           </h2>
         </motion.div>
 
@@ -63,10 +63,10 @@ export default function HowItWorks() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
                 className="relative"
               >
-                <div className="relative bg-[#080A0F] inline-flex w-20 h-20 items-center justify-center border border-[#CBA153]/30 mb-6">
-                  <span className="font-serif-display text-[#CBA153] text-3xl">{s.n}</span>
+                <div className="relative bg-[#0B1B33] inline-flex w-20 h-20 items-center justify-center border border-[#3D7A5F]/30 mb-6">
+                  <span className="font-serif-display text-[#3D7A5F] text-3xl">{s.n}</span>
                 </div>
-                <h3 className="font-serif-display text-xl lg:text-2xl text-[#F3F2ED] font-normal">
+                <h3 className="font-serif-display text-xl lg:text-2xl text-[#FFFFFF] font-normal">
                   {s.title}
                 </h3>
                 <p className="mt-3 text-[#9CA3AF] text-sm leading-relaxed">

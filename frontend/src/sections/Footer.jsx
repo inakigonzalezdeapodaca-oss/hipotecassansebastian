@@ -4,19 +4,19 @@ import { Instagram } from "lucide-react";
 export default function Footer() {
   return (
     <footer
-      className="relative bg-[#05070A] pt-20 lg:pt-28 overflow-hidden"
+      className="relative bg-[#07142A] pt-20 lg:pt-28 overflow-hidden"
       data-testid="footer"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-16">
           <div className="md:col-span-5">
             <div className="flex items-center gap-4">
-              <span className="inline-flex items-center justify-center w-16 h-16 bg-[#F3F2ED] p-2 shrink-0">
+              <span className="inline-flex items-center justify-center w-16 h-16 bg-[#FFFFFF] p-2 shrink-0">
                 <img src="/logo.jpeg" alt="Hipotecas San Sebastián" className="w-full h-full object-contain" />
               </span>
-              <div className="font-serif-display text-[#F3F2ED] text-2xl leading-tight">
+              <div className="font-serif-display text-[#FFFFFF] text-2xl leading-tight">
                 Hipotecas{" "}
-                <span className="italic text-[#CBA153]">San Sebastián</span>
+                <span className="italic text-[#3D7A5F]">San Sebastián</span>
               </div>
             </div>
             <p className="mt-5 text-[#9CA3AF] text-sm leading-relaxed max-w-sm">
@@ -28,11 +28,11 @@ export default function Footer() {
               href="https://instagram.com/hipotecas.sansebastian"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-3 text-[#F3F2ED] hover:text-[#CBA153] transition-colors group"
+              className="mt-6 inline-flex items-center gap-3 text-[#FFFFFF] hover:text-[#3D7A5F] transition-colors group"
               data-testid="footer-instagram-link"
             >
-              <span className="w-10 h-10 border border-[#CBA153]/40 group-hover:border-[#CBA153] flex items-center justify-center transition-colors">
-                <Instagram size={18} className="text-[#CBA153]" />
+              <span className="w-10 h-10 border border-[#3D7A5F]/40 group-hover:border-[#3D7A5F] flex items-center justify-center transition-colors">
+                <Instagram size={18} className="text-[#3D7A5F]" />
               </span>
               <span className="text-sm tracking-wide">@hipotecas.sansebastian</span>
             </a>
@@ -53,7 +53,7 @@ export default function Footer() {
                 <li key={h}>
                   <a
                     href={h}
-                    className="text-[#F3F2ED]/80 hover:text-[#CBA153] transition-colors"
+                    className="text-[#FFFFFF]/80 hover:text-[#3D7A5F] transition-colors"
                   >
                     {l}
                   </a>
@@ -72,7 +72,7 @@ export default function Footer() {
                   href="https://wa.me/5491124706405?text=Hola%2C%20me%20interesa%20un%20cr%C3%A9dito%20hipotecario"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#F3F2ED]/80 hover:text-[#CBA153] transition-colors"
+                  className="text-[#FFFFFF]/80 hover:text-[#3D7A5F] transition-colors"
                   data-testid="footer-whatsapp-link"
                 >
                   WhatsApp: +54 9 11 2470-6405
@@ -83,7 +83,7 @@ export default function Footer() {
                   href="https://instagram.com/hipotecas.sansebastian"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#F3F2ED]/80 hover:text-[#CBA153] transition-colors"
+                  className="text-[#FFFFFF]/80 hover:text-[#3D7A5F] transition-colors"
                 >
                   Instagram: @hipotecas.sansebastian
                 </a>
@@ -103,7 +103,7 @@ export default function Footer() {
           className="border-t border-white/10 pt-10 pb-6"
         >
           <div
-            className="font-serif-display text-[#121620] leading-[0.9] tracking-tight select-none"
+            className="font-serif-display text-[#15263F] leading-[0.9] tracking-tight select-none"
             style={{ fontSize: "clamp(48px, 12vw, 200px)" }}
           >
             San Sebastián
