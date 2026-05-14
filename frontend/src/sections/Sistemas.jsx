@@ -71,14 +71,14 @@ export default function Sistemas() {
                 <div className="w-12 h-12 border border-[#3D7A5F]/40 text-[#3D7A5F] flex items-center justify-center mb-6">
                   <Icon size={22} />
                 </div>
-                <h3 className="font-serif-display text-3xl lg:text-4xl text-[#FFFFFF] font-light">
+                <h3 className="font-serif-display text-3xl lg:text-4xl text-[#F0E6CE] font-light">
                   {c.title}
                 </h3>
                 <div className="text-[#3D7A5F] text-sm italic mt-1">{c.subtitle}</div>
                 <p className="text-[#9CA3AF] mt-6 leading-relaxed">{c.body}</p>
                 <ul className="mt-6 space-y-2 text-sm">
                   {c.bullets.map((b) => (
-                    <li key={b} className="flex items-start gap-3 text-[#FFFFFF]/90">
+                    <li key={b} className="flex items-start gap-3 text-[#F0E6CE]/90">
                       <span className="mt-2 h-px w-4 bg-[#3D7A5F]" />
                       <span>{b}</span>
                     </li>
@@ -101,7 +101,7 @@ export default function Sistemas() {
           </div>
           <a
             href="#simulador"
-            className="self-start md:self-auto border border-white/20 text-[#FFFFFF] px-6 py-3 text-sm hover:border-[#3D7A5F] hover:text-[#3D7A5F] transition-all duration-300"
+            className="self-start md:self-auto border border-white/20 text-[#F0E6CE] px-6 py-3 text-sm hover:border-[#3D7A5F] hover:text-[#3D7A5F] transition-all duration-300"
           >
             Ir al simulador
           </a>

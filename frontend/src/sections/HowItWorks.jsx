@@ -66,7 +66,7 @@ export default function HowItWorks() {
                 <div className="relative bg-[#0B1B33] inline-flex w-20 h-20 items-center justify-center border border-[#3D7A5F]/30 mb-6">
                   <span className="font-serif-display text-[#3D7A5F] text-3xl">{s.n}</span>
                 </div>
-                <h3 className="font-serif-display text-xl lg:text-2xl text-[#FFFFFF] font-normal">
+                <h3 className="font-serif-display text-xl lg:text-2xl text-[#F0E6CE] font-normal">
                   {s.title}
                 </h3>
                 <p className="mt-3 text-[#9CA3AF] text-sm leading-relaxed">

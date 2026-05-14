@@ -66,7 +66,7 @@ export default function Contact() {
             href="https://instagram.com/hipotecas.sansebastian"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 inline-flex items-center gap-3 text-[#FFFFFF] hover:text-[#3D7A5F] transition-colors group"
+            className="mt-5 inline-flex items-center gap-3 text-[#F0E6CE] hover:text-[#3D7A5F] transition-colors group"
             data-testid="contact-instagram-link"
           >
             <span className="w-10 h-10 border border-[#3D7A5F]/40 group-hover:border-[#3D7A5F] flex items-center justify-center transition-colors">

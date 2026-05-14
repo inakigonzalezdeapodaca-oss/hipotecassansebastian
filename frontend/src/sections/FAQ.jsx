@@ -73,7 +73,7 @@ export default function FAQ() {
               className="border-b border-white/10 last:border-b-0"
               data-testid={`faq-item-${i}`}
             >
-              <AccordionTrigger className="text-left text-[#FFFFFF] hover:text-[#3D7A5F] font-serif-display text-lg sm:text-xl py-6 hover:no-underline transition-colors">
+              <AccordionTrigger className="text-left text-[#F0E6CE] hover:text-[#3D7A5F] font-serif-display text-lg sm:text-xl py-6 hover:no-underline transition-colors">
                 {f.q}
               </AccordionTrigger>
               <AccordionContent className="text-[#9CA3AF] text-base leading-relaxed pb-6 pr-8">

@@ -118,7 +118,7 @@ export default function Simulator() {
     doc.setFont("helvetica", "bold");
     doc.setFontSize(20);
     doc.text("Hipotecas San Sebastián", textX, 50);
-    doc.setTextColor(243, 242, 237);
+    doc.setTextColor(240, 230, 206);
     doc.setFont("helvetica", "normal");
     doc.setFontSize(10);
     doc.text("Simulación de crédito hipotecario · USD", textX, 70);
@@ -274,7 +274,7 @@ export default function Simulator() {
                           : "border-white/15 hover:border-white/30"
                       }`}
                     >
-                      <div className="font-serif-display text-xl text-[#FFFFFF]">
+                      <div className="font-serif-display text-xl text-[#F0E6CE]">
                         {opt.label}
                       </div>
                       <div className="text-xs text-[#9CA3AF] mt-1">{opt.desc}</div>
@@ -301,7 +301,7 @@ export default function Simulator() {
                       setPropertyValue(isNaN(n) ? 0 : n);
                     }}
                     placeholder="Ej. 200.000"
-                    className="bg-transparent flex-1 font-serif-display text-[#FFFFFF] text-2xl py-3 outline-none placeholder:text-white/20"
+                    className="bg-transparent flex-1 font-serif-display text-[#F0E6CE] text-2xl py-3 outline-none placeholder:text-white/20"
                     data-testid="property-value-input"
                   />
                 </div>
@@ -333,7 +333,7 @@ export default function Simulator() {
                       setLoanAmount(isNaN(n) ? 0 : n);
                     }}
                     placeholder="Ej. 60.000"
-                    className="bg-transparent flex-1 font-serif-display text-[#FFFFFF] text-2xl py-3 outline-none placeholder:text-white/20"
+                    className="bg-transparent flex-1 font-serif-display text-[#F0E6CE] text-2xl py-3 outline-none placeholder:text-white/20"
                     data-testid="loan-amount-input"
                   />
                 </div>
@@ -363,7 +363,7 @@ export default function Simulator() {
                   <label className="text-xs uppercase tracking-[0.22em] text-[#9CA3AF]">
                     Plazo
                   </label>
-                  <span className="font-serif-display text-[#FFFFFF] text-lg" data-testid="term-display">
+                  <span className="font-serif-display text-[#F0E6CE] text-lg" data-testid="term-display">
                     {termMonths} cuotas
                   </span>
                 </div>
@@ -377,7 +377,7 @@ export default function Simulator() {
                       className={`py-3 border text-center transition-all duration-300 ${
                         termMonths === m
                           ? "border-[#3D7A5F] bg-[#3D7A5F]/10 text-[#3D7A5F]"
-                          : "border-white/15 text-[#FFFFFF]/80 hover:border-white/30"
+                          : "border-white/15 text-[#F0E6CE]/80 hover:border-white/30"
                       }`}
                     >
                       <div className="font-serif-display text-xl leading-none">{m}</div>
@@ -420,7 +420,7 @@ export default function Simulator() {
                 <div className="text-xs uppercase tracking-[0.2em] text-[#3D7A5F]">
                   Cuota final (capital)
                 </div>
-                <div className="font-serif-display text-2xl text-[#FFFFFF] mt-1">
+                <div className="font-serif-display text-2xl text-[#F0E6CE] mt-1">
                   {fmt(result?.final_balloon)}
                 </div>
               </div>
@@ -465,8 +465,8 @@ export default function Simulator() {
                   <div className="font-serif-display text-[#3D7A5F] text-xl leading-tight">
                     Sin comisiones. Sin gastos extra.
                   </div>
-                  <div className="text-[12px] text-[#FFFFFF]/85 leading-relaxed mt-1.5">
-                    La cuota que ves es <span className="text-[#FFFFFF] font-medium">todo lo que pagás</span>.
+                  <div className="text-[12px] text-[#F0E6CE]/85 leading-relaxed mt-1.5">
+                    La cuota que ves es <span className="text-[#F0E6CE] font-medium">todo lo que pagás</span>.
                     Cero cargos de administración, originación, mantenimiento ni costos ocultos.
                   </div>
                 </div>
@@ -484,7 +484,7 @@ export default function Simulator() {
               type="button"
               onClick={downloadPdf}
               disabled={!result || !ltvValid}
-              className="mt-3 inline-flex items-center justify-center gap-2 border border-white/20 text-[#FFFFFF] px-6 py-3 text-sm hover:border-[#3D7A5F] hover:text-[#3D7A5F] transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
+              className="mt-3 inline-flex items-center justify-center gap-2 border border-white/20 text-[#F0E6CE] px-6 py-3 text-sm hover:border-[#3D7A5F] hover:text-[#3D7A5F] transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
               data-testid="simulator-download-pdf"
             >
               <Download size={15} />
@@ -509,7 +509,7 @@ function Field({ label, value, children, testid }) {
           {label}
         </label>
         <span
-          className="font-serif-display text-[#FFFFFF] text-lg"
+          className="font-serif-display text-[#F0E6CE] text-lg"
           data-testid={testid}
         >
           {value}
@@ -535,7 +535,7 @@ function Metric({ label, value, valid = true }) {
       <div className="text-[10px] uppercase tracking-[0.2em] text-[#9CA3AF]">{label}</div>
       <div
         className={`font-serif-display text-xl mt-1 ${
-          valid ? "text-[#FFFFFF]" : "text-red-400"
+          valid ? "text-[#F0E6CE]" : "text-red-400"
         }`}
       >
         {value}

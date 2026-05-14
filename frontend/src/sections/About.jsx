@@ -36,7 +36,7 @@ export default function About() {
               <div className="font-serif-display text-[#3D7A5F] text-[120px] sm:text-[160px] lg:text-[180px] font-light leading-[0.85] tracking-tight">
                 35
               </div>
-              <div className="font-serif-display italic text-[#FFFFFF] text-2xl mt-2">
+              <div className="font-serif-display italic text-[#F0E6CE] text-2xl mt-2">
                 años de oficio
               </div>
             </div>
@@ -54,7 +54,7 @@ export default function About() {
               <div className="font-serif-display italic text-[#3D7A5F] text-lg mb-1">
                 Escribanos seleccionados. Procesos transparentes.
               </div>
-              <div className="text-[#FFFFFF] text-sm max-w-md">
+              <div className="text-[#F0E6CE] text-sm max-w-md">
                 Cada operación se firma en escritura pública con respaldo legal completo.
               </div>
             </div>
@@ -66,7 +66,7 @@ export default function About() {
               Trayectoria
             </div>
             <div>
-              <div className="font-serif-display text-[#FFFFFF] text-[80px] sm:text-[110px] font-light leading-[0.85] tracking-tight">
+              <div className="font-serif-display text-[#F0E6CE] text-[80px] sm:text-[110px] font-light leading-[0.85] tracking-tight">
                 1.000<span className="text-[#3D7A5F]">+</span>
               </div>
               <div className="text-[#9CA3AF] text-sm mt-3 uppercase tracking-[0.2em]">
@@ -77,11 +77,11 @@ export default function About() {
 
           {/* Text block */}
           <div className="md:col-span-8 bg-[#15263F] border border-white/10 p-8 lg:p-10">
-            <h3 className="font-serif-display text-2xl lg:text-3xl text-[#FFFFFF] font-light mb-4">
+            <h3 className="font-serif-display text-2xl lg:text-3xl text-[#F0E6CE] font-light mb-4">
               Oficinas privadas en CABA. Conocemos cada calle de Buenos Aires.
             </h3>
             <p className="text-[#9CA3AF] leading-relaxed">
-              Atendemos en nuestras <span className="text-[#FFFFFF]">oficinas privadas en Capital Federal</span>,
+              Atendemos en nuestras <span className="text-[#F0E6CE]">oficinas privadas en Capital Federal</span>,
               donde recibimos a cada cliente con una entrevista personal. Operamos
               exclusivamente en Capital Federal (CABA) y en algunas zonas de Gran Buenos Aires.
               Trabajamos solo en dólares estadounidenses y financiamos hasta el 35% del valor

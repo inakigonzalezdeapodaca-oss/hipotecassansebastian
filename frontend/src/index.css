@@ -8,7 +8,7 @@
   --surface-deep: #07142A;
   --primary: #3D7A5F;
   --primary-hover: #4F9577;
-  --text-main: #FFFFFF;
+  --text-main: #F0E6CE;
   --text-muted: #9CA3AF;
   --border-soft: rgba(255, 255, 255, 0.1);
 }
@@ -59,7 +59,7 @@ html, body {
   background: linear-gradient(90deg, #3D7A5F, #4F9577) !important;
 }
 [data-slot="slider-thumb"] {
-  background: #FFFFFF !important;
+  background: #F0E6CE !important;
   border: 2px solid #3D7A5F !important;
   width: 18px !important;
   height: 18px !important;
@@ -71,7 +71,7 @@ html, body {
 
 @layer base {
   body {
-    @apply bg-[#0B1B33] text-white;
+    @apply bg-[#0B1B33] text-[#F0E6CE];
   }
 }
 

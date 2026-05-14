@@ -39,7 +39,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, ease, delay: 0.2 }}
-          className="font-serif-display text-4xl sm:text-5xl lg:text-7xl font-light leading-[1.05] tracking-tight max-w-4xl text-[#FFFFFF]"
+          className="font-serif-display text-4xl sm:text-5xl lg:text-7xl font-light leading-[1.05] tracking-tight max-w-4xl text-[#F0E6CE]"
         >
           La hipoteca en{" "}
           <span className="italic text-[#3D7A5F]">dólares</span> que
@@ -54,10 +54,10 @@ export default function Hero() {
           transition={{ duration: 0.9, ease, delay: 0.4 }}
           className="mt-8 max-w-2xl text-base sm:text-lg text-[#9CA3AF] leading-relaxed"
         >
-          Contamos con <span className="text-[#FFFFFF]">oficinas privadas en Capital Federal</span>.
-          Financiamos hasta el <span className="text-[#FFFFFF]">35% del valor</span> de tu
+          Contamos con <span className="text-[#F0E6CE]">oficinas privadas en Capital Federal</span>.
+          Financiamos hasta el <span className="text-[#F0E6CE]">35% del valor</span> de tu
           propiedad en CABA y en algunas zonas de Gran Buenos Aires.
-          Plazos de <span className="text-[#FFFFFF]">24 a 60 cuotas</span>,
+          Plazos de <span className="text-[#F0E6CE]">24 a 60 cuotas</span>,
           sistema francés o americano. <span className="text-[#3D7A5F]">Sin comisiones ni gastos extra.</span>
         </motion.p>
 
@@ -77,7 +77,7 @@ export default function Hero() {
           </a>
           <a
             href="#contacto"
-            className="inline-flex items-center gap-3 border border-white/20 text-[#FFFFFF] px-8 py-4 hover:border-white/40 hover:bg-white/5 transition-all duration-300"
+            className="inline-flex items-center gap-3 border border-white/20 text-[#F0E6CE] px-8 py-4 hover:border-white/40 hover:bg-white/5 transition-all duration-300"
             data-testid="hero-cta-contacto"
           >
             Hablar con un asesor

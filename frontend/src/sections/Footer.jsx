@@ -11,10 +11,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-16">
           <div className="md:col-span-5">
             <div className="flex items-center gap-4">
-              <span className="inline-flex items-center justify-center w-16 h-16 bg-[#FFFFFF] p-2 shrink-0">
+              <span className="inline-flex items-center justify-center w-16 h-16 bg-[#F0E6CE] p-2 shrink-0">
                 <img src="/logo.jpeg" alt="Hipotecas San Sebastián" className="w-full h-full object-contain" />
               </span>
-              <div className="font-serif-display text-[#FFFFFF] text-2xl leading-tight">
+              <div className="font-serif-display text-[#F0E6CE] text-2xl leading-tight">
                 Hipotecas{" "}
                 <span className="italic text-[#3D7A5F]">San Sebastián</span>
               </div>
@@ -28,7 +28,7 @@ export default function Footer() {
               href="https://instagram.com/hipotecas.sansebastian"
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-3 text-[#FFFFFF] hover:text-[#3D7A5F] transition-colors group"
+              className="mt-6 inline-flex items-center gap-3 text-[#F0E6CE] hover:text-[#3D7A5F] transition-colors group"
               data-testid="footer-instagram-link"
             >
               <span className="w-10 h-10 border border-[#3D7A5F]/40 group-hover:border-[#3D7A5F] flex items-center justify-center transition-colors">
@@ -53,7 +53,7 @@ export default function Footer() {
                 <li key={h}>
                   <a
                     href={h}
-                    className="text-[#FFFFFF]/80 hover:text-[#3D7A5F] transition-colors"
+                    className="text-[#F0E6CE]/80 hover:text-[#3D7A5F] transition-colors"
                   >
                     {l}
                   </a>
@@ -72,7 +72,7 @@ export default function Footer() {
                   href="https://wa.me/5491124706405?text=Hola%2C%20me%20interesa%20un%20cr%C3%A9dito%20hipotecario"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#FFFFFF]/80 hover:text-[#3D7A5F] transition-colors"
+                  className="text-[#F0E6CE]/80 hover:text-[#3D7A5F] transition-colors"
                   data-testid="footer-whatsapp-link"
                 >
                   WhatsApp: +54 9 11 2470-6405
@@ -83,7 +83,7 @@ export default function Footer() {
                   href="https://instagram.com/hipotecas.sansebastian"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#FFFFFF]/80 hover:text-[#3D7A5F] transition-colors"
+                  className="text-[#F0E6CE]/80 hover:text-[#3D7A5F] transition-colors"
                 >
                   Instagram: @hipotecas.sansebastian
                 </a>
