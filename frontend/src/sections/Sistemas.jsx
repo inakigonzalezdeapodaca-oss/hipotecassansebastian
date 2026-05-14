@@ -45,13 +45,13 @@ export default function Sistemas() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl mb-14"
         >
-          <div className="flex items-center gap-3 text-[#3D7A5F] mb-5">
-            <span className="h-px w-12 bg-[#3D7A5F]" />
+          <div className="flex items-center gap-3 text-[#CBA153] mb-5">
+            <span className="h-px w-12 bg-[#CBA153]" />
             <span className="text-xs uppercase tracking-[0.3em]">Sistemas explicados simple</span>
           </div>
           <h2 className="font-serif-display text-3xl sm:text-4xl lg:text-5xl font-light leading-tight">
             Dos maneras de pagar.{" "}
-            <span className="italic text-[#3D7A5F]">Vos elegís</span>.
+            <span className="italic text-[#CBA153]">Vos elegís</span>.
           </h2>
         </motion.div>
 
@@ -65,21 +65,21 @@ export default function Sistemas() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
-                className="relative bg-[#15263F] border border-white/10 p-8 lg:p-10 group hover:border-[#3D7A5F]/40 transition-all duration-500"
+                className="relative bg-[#15263F] border border-white/10 p-8 lg:p-10 group hover:border-[#CBA153]/40 transition-all duration-500"
                 data-testid={`sistema-card-${c.id}`}
               >
-                <div className="w-12 h-12 border border-[#3D7A5F]/40 text-[#3D7A5F] flex items-center justify-center mb-6">
+                <div className="w-12 h-12 border border-[#CBA153]/40 text-[#CBA153] flex items-center justify-center mb-6">
                   <Icon size={22} />
                 </div>
                 <h3 className="font-serif-display text-3xl lg:text-4xl text-[#F0E6CE] font-light">
                   {c.title}
                 </h3>
-                <div className="text-[#3D7A5F] text-sm italic mt-1">{c.subtitle}</div>
+                <div className="text-[#CBA153] text-sm italic mt-1">{c.subtitle}</div>
                 <p className="text-[#9CA3AF] mt-6 leading-relaxed">{c.body}</p>
                 <ul className="mt-6 space-y-2 text-sm">
                   {c.bullets.map((b) => (
                     <li key={b} className="flex items-start gap-3 text-[#F0E6CE]/90">
-                      <span className="mt-2 h-px w-4 bg-[#3D7A5F]" />
+                      <span className="mt-2 h-px w-4 bg-[#CBA153]" />
                       <span>{b}</span>
                     </li>
                   ))}
@@ -101,7 +101,7 @@ export default function Sistemas() {
           </div>
           <a
             href="#simulador"
-            className="self-start md:self-auto border border-white/20 text-[#F0E6CE] px-6 py-3 text-sm hover:border-[#3D7A5F] hover:text-[#3D7A5F] transition-all duration-300"
+            className="self-start md:self-auto border border-white/20 text-[#F0E6CE] px-6 py-3 text-sm hover:border-[#CBA153] hover:text-[#CBA153] transition-all duration-300"
           >
             Ir al simulador
           </a>

@@ -27,9 +27,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.0, ease, delay: 0.1 }}
-          className="flex items-center gap-3 text-[#3D7A5F] mb-6"
+          className="flex items-center gap-3 text-[#CBA153] mb-6"
         >
-          <span className="h-px w-12 bg-[#3D7A5F]" />
+          <span className="h-px w-12 bg-[#CBA153]" />
           <span className="text-xs uppercase tracking-[0.3em] font-medium">
             Créditos hipotecarios privados · USD
           </span>
@@ -42,7 +42,7 @@ export default function Hero() {
           className="font-serif-display text-4xl sm:text-5xl lg:text-7xl font-light leading-[1.05] tracking-tight max-w-4xl text-[#F0E6CE]"
         >
           La hipoteca en{" "}
-          <span className="italic text-[#3D7A5F]">dólares</span> que
+          <span className="italic text-[#CBA153]">dólares</span> que
           construye patrimonio,
           <br className="hidden sm:block" />
           con la seriedad de tres décadas.
@@ -58,7 +58,7 @@ export default function Hero() {
           Financiamos hasta el <span className="text-[#F0E6CE]">35% del valor</span> de tu
           propiedad en CABA y en algunas zonas de Gran Buenos Aires.
           Plazos de <span className="text-[#F0E6CE]">24 a 60 cuotas</span>,
-          sistema francés o americano. <span className="text-[#3D7A5F]">Sin comisiones ni gastos extra.</span>
+          sistema francés o americano. <span className="text-[#CBA153]">Sin comisiones ni gastos extra.</span>
         </motion.p>
 
         <motion.div
@@ -69,7 +69,7 @@ export default function Hero() {
         >
           <a
             href="#simulador"
-            className="group inline-flex items-center gap-3 bg-[#3D7A5F] text-[#0B1B33] font-medium px-8 py-4 hover:bg-[#4F9577] transition-all duration-300"
+            className="group inline-flex items-center gap-3 bg-[#CBA153] text-[#0B1B33] font-medium px-8 py-4 hover:bg-[#E1C07C] transition-all duration-300"
             data-testid="hero-cta-simulador"
           >
             Simular mi crédito
@@ -90,7 +90,7 @@ export default function Hero() {
           transition={{ duration: 0.9, ease, delay: 0.8 }}
           className="mt-12 flex items-center gap-2 text-[#9CA3AF] text-xs uppercase tracking-[0.25em]"
         >
-          <MapPin size={14} className="text-[#3D7A5F]" />
+          <MapPin size={14} className="text-[#CBA153]" />
           <span>Capital Federal (CABA) &amp; algunas zonas de Gran Buenos Aires</span>
         </motion.div>
       </div>

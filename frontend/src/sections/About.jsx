@@ -15,13 +15,13 @@ export default function About() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl mb-12"
         >
-          <div className="flex items-center gap-3 text-[#3D7A5F] mb-5">
-            <span className="h-px w-12 bg-[#3D7A5F]" />
+          <div className="flex items-center gap-3 text-[#CBA153] mb-5">
+            <span className="h-px w-12 bg-[#CBA153]" />
             <span className="text-xs uppercase tracking-[0.3em]">Nosotros</span>
           </div>
           <h2 className="font-serif-display text-3xl sm:text-4xl lg:text-5xl font-light leading-tight">
             Tres décadas hipotecando.{" "}
-            <span className="italic text-[#3D7A5F]">Mil familias después.</span>
+            <span className="italic text-[#CBA153]">Mil familias después.</span>
           </h2>
         </motion.div>
 
@@ -33,7 +33,7 @@ export default function About() {
               Desde 1990
             </div>
             <div>
-              <div className="font-serif-display text-[#3D7A5F] text-[120px] sm:text-[160px] lg:text-[180px] font-light leading-[0.85] tracking-tight">
+              <div className="font-serif-display text-[#CBA153] text-[120px] sm:text-[160px] lg:text-[180px] font-light leading-[0.85] tracking-tight">
                 35
               </div>
               <div className="font-serif-display italic text-[#F0E6CE] text-2xl mt-2">
@@ -51,7 +51,7 @@ export default function About() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0B1B33]/90 via-[#0B1B33]/30 to-transparent" />
             <div className="absolute bottom-0 left-0 right-0 p-8">
-              <div className="font-serif-display italic text-[#3D7A5F] text-lg mb-1">
+              <div className="font-serif-display italic text-[#CBA153] text-lg mb-1">
                 Escribanos seleccionados. Procesos transparentes.
               </div>
               <div className="text-[#F0E6CE] text-sm max-w-md">
@@ -61,13 +61,13 @@ export default function About() {
           </div>
 
           {/* 1000+ */}
-          <div className="md:col-span-4 bg-[#07142A] border border-[#3D7A5F]/30 p-8 lg:p-10 flex flex-col justify-between min-h-[220px]">
-            <div className="text-xs uppercase tracking-[0.25em] text-[#3D7A5F]">
+          <div className="md:col-span-4 bg-[#07142A] border border-[#CBA153]/30 p-8 lg:p-10 flex flex-col justify-between min-h-[220px]">
+            <div className="text-xs uppercase tracking-[0.25em] text-[#CBA153]">
               Trayectoria
             </div>
             <div>
               <div className="font-serif-display text-[#F0E6CE] text-[80px] sm:text-[110px] font-light leading-[0.85] tracking-tight">
-                1.000<span className="text-[#3D7A5F]">+</span>
+                1.000<span className="text-[#CBA153]">+</span>
               </div>
               <div className="text-[#9CA3AF] text-sm mt-3 uppercase tracking-[0.2em]">
                 Hipotecas otorgadas
@@ -96,7 +96,7 @@ export default function About() {
                 ["24–60", "Cuotas"],
               ].map(([h, d]) => (
                 <div key={h} className="border-t border-white/10 pt-3">
-                  <div className="font-serif-display text-[#3D7A5F] text-lg">{h}</div>
+                  <div className="font-serif-display text-[#CBA153] text-lg">{h}</div>
                   <div className="text-[#9CA3AF] mt-1 uppercase tracking-[0.15em] text-[10px]">
                     {d}
                   </div>

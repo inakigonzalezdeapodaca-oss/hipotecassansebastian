@@ -56,12 +56,12 @@ export default function FAQ() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl mb-12"
         >
-          <div className="flex items-center gap-3 text-[#3D7A5F] mb-5">
-            <span className="h-px w-12 bg-[#3D7A5F]" />
+          <div className="flex items-center gap-3 text-[#CBA153] mb-5">
+            <span className="h-px w-12 bg-[#CBA153]" />
             <span className="text-xs uppercase tracking-[0.3em]">Preguntas frecuentes</span>
           </div>
           <h2 className="font-serif-display text-3xl sm:text-4xl lg:text-5xl font-light leading-tight">
-            Lo que <span className="italic text-[#3D7A5F]">siempre</span> te preguntás.
+            Lo que <span className="italic text-[#CBA153]">siempre</span> te preguntás.
           </h2>
         </motion.div>
 
@@ -73,7 +73,7 @@ export default function FAQ() {
               className="border-b border-white/10 last:border-b-0"
               data-testid={`faq-item-${i}`}
             >
-              <AccordionTrigger className="text-left text-[#F0E6CE] hover:text-[#3D7A5F] font-serif-display text-lg sm:text-xl py-6 hover:no-underline transition-colors">
+              <AccordionTrigger className="text-left text-[#F0E6CE] hover:text-[#CBA153] font-serif-display text-lg sm:text-xl py-6 hover:no-underline transition-colors">
                 {f.q}
               </AccordionTrigger>
               <AccordionContent className="text-[#9CA3AF] text-base leading-relaxed pb-6 pr-8">

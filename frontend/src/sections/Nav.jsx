@@ -42,7 +42,7 @@ export default function Nav() {
             <span className="font-serif-display text-[#F0E6CE] text-lg sm:text-xl tracking-tight">
               Hipotecas
             </span>
-            <span className="font-serif-display italic text-[#3D7A5F] text-xs sm:text-sm -mt-0.5 tracking-wide">
+            <span className="font-serif-display italic text-[#CBA153] text-xs sm:text-sm -mt-0.5 tracking-wide">
               San Sebastián
             </span>
           </span>
@@ -64,7 +64,7 @@ export default function Nav() {
         <div className="hidden lg:block">
           <a
             href="#contacto"
-            className="bg-[#3D7A5F] text-[#0B1B33] font-medium text-sm px-6 py-2.5 hover:bg-[#4F9577] transition-all duration-300"
+            className="bg-[#CBA153] text-[#0B1B33] font-medium text-sm px-6 py-2.5 hover:bg-[#E1C07C] transition-all duration-300"
             data-testid="nav-cta-button"
           >
             Solicitar crédito
@@ -97,7 +97,7 @@ export default function Nav() {
             <a
               href="#contacto"
               onClick={() => setOpen(false)}
-              className="bg-[#3D7A5F] text-[#0B1B33] font-medium text-sm px-6 py-3 text-center mt-2"
+              className="bg-[#CBA153] text-[#0B1B33] font-medium text-sm px-6 py-3 text-center mt-2"
             >
               Solicitar crédito
             </a>

@@ -42,12 +42,12 @@ export default function HowItWorks() {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           className="max-w-3xl mb-14"
         >
-          <div className="flex items-center gap-3 text-[#3D7A5F] mb-5">
-            <span className="h-px w-12 bg-[#3D7A5F]" />
+          <div className="flex items-center gap-3 text-[#CBA153] mb-5">
+            <span className="h-px w-12 bg-[#CBA153]" />
             <span className="text-xs uppercase tracking-[0.3em]">Cómo funciona</span>
           </div>
           <h2 className="font-serif-display text-3xl sm:text-4xl lg:text-5xl font-light leading-tight">
-            Cuatro pasos. <span className="italic text-[#3D7A5F]">Cero sorpresas.</span>
+            Cuatro pasos. <span className="italic text-[#CBA153]">Cero sorpresas.</span>
           </h2>
         </motion.div>
 
@@ -63,8 +63,8 @@ export default function HowItWorks() {
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.1 }}
                 className="relative"
               >
-                <div className="relative bg-[#0B1B33] inline-flex w-20 h-20 items-center justify-center border border-[#3D7A5F]/30 mb-6">
-                  <span className="font-serif-display text-[#3D7A5F] text-3xl">{s.n}</span>
+                <div className="relative bg-[#0B1B33] inline-flex w-20 h-20 items-center justify-center border border-[#CBA153]/30 mb-6">
+                  <span className="font-serif-display text-[#CBA153] text-3xl">{s.n}</span>
                 </div>
                 <h3 className="font-serif-display text-xl lg:text-2xl text-[#F0E6CE] font-normal">
                   {s.title}

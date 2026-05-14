@@ -6,8 +6,8 @@
   --bg: #0B1B33;
   --surface: #15263F;
   --surface-deep: #07142A;
-  --primary: #3D7A5F;
-  --primary-hover: #4F9577;
+  --primary: #CBA153;
+  --primary-hover: #E1C07C;
   --text-main: #F0E6CE;
   --text-muted: #9CA3AF;
   --border-soft: rgba(255, 255, 255, 0.1);
@@ -56,11 +56,11 @@ html, body {
   background: rgba(255, 255, 255, 0.08) !important;
 }
 [data-slot="slider-range"] {
-  background: linear-gradient(90deg, #3D7A5F, #4F9577) !important;
+  background: linear-gradient(90deg, #CBA153, #E1C07C) !important;
 }
 [data-slot="slider-thumb"] {
   background: #F0E6CE !important;
-  border: 2px solid #3D7A5F !important;
+  border: 2px solid #CBA153 !important;
   width: 18px !important;
   height: 18px !important;
 }

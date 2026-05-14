@@ -20,7 +20,7 @@ export default function Stats() {
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: i * 0.08 }}
             data-testid={`stat-${i}`}
           >
-            <div className="font-serif-display text-[#3D7A5F] text-5xl sm:text-6xl lg:text-7xl font-light leading-none tracking-tight">
+            <div className="font-serif-display text-[#CBA153] text-5xl sm:text-6xl lg:text-7xl font-light leading-none tracking-tight">
               {it.num}
               {it.suf && (
                 <span className="text-sm sm:text-base text-[#9CA3AF] ml-2 font-body italic">
