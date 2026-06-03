@@ -17,9 +17,10 @@ import resend
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
-# MongoDB connection
+# MongoDB connection. Use serverSelectionTimeoutMS so Atlas DNS / TLS hiccups
+# don't block the event loop indefinitely on cold start.
 mongo_url = os.environ['MONGO_URL']
-client = AsyncIOMotorClient(mongo_url)
+client = AsyncIOMotorClient(mongo_url, serverSelectionTimeoutMS=5000)
 db = client[os.environ['DB_NAME']]
 
 # Email config
@@ -295,6 +296,19 @@ async def list_contacts():
 
 
 app.include_router(api_router)
+
+
+# Top-level health/probe endpoints for container readiness/liveness probes.
+# These do NOT touch MongoDB so they always return fast and stay green even
+# if the database has a transient issue.
+@app.get("/")
+async def app_root():
+    return {"service": "Hipotecas San Sebastián", "status": "ok"}
+
+
+@app.get("/health")
+async def app_health():
+    return {"status": "ok"}
 
 app.add_middleware(
     CORSMiddleware,
