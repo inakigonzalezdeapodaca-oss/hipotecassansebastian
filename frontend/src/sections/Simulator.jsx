@@ -5,7 +5,14 @@ import { Slider } from "@/components/ui/slider";
 import { AlertCircle, Check, Download } from "lucide-react";
 import jsPDF from "jspdf";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+// In any deployed environment (preview or production) the backend is served
+// behind the same ingress as the frontend, so `/api/...` resolves correctly
+// against whichever domain the user is currently on. We only use the build-time
+// REACT_APP_BACKEND_URL when running locally on localhost (e.g. `yarn start`).
+const _isLocal =
+  typeof window !== "undefined" &&
+  (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1");
+const BACKEND_URL = _isLocal ? process.env.REACT_APP_BACKEND_URL || "" : "";
 const API = `${BACKEND_URL}/api`;
 
 const fmt = (n) =>
