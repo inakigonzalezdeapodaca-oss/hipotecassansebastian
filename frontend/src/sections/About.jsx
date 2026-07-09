@@ -20,21 +20,21 @@ export default function About() {
             <span className="text-xs uppercase tracking-[0.3em]">Nosotros</span>
           </div>
           <h2 className="font-serif-display text-3xl sm:text-4xl lg:text-5xl font-light leading-tight">
-            Tres décadas hipotecando.{" "}
+            Cuatro décadas hipotecando.{" "}
             <span className="italic text-[#CBA153]">Mil familias después.</span>
           </h2>
         </motion.div>
 
         {/* Bento grid */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-4 lg:gap-6">
-          {/* 35 años — big */}
+          {/* 40 años — big */}
           <div className="md:col-span-5 bg-[#15263F] border border-white/10 p-8 lg:p-10 flex flex-col justify-between min-h-[280px]">
             <div className="text-xs uppercase tracking-[0.25em] text-[#9CA3AF]">
-              Desde 1990
+              Desde 1986
             </div>
             <div>
               <div className="font-serif-display text-[#CBA153] text-[120px] sm:text-[160px] lg:text-[180px] font-light leading-[0.85] tracking-tight">
-                35
+                40
               </div>
               <div className="font-serif-display italic text-[#F0E6CE] text-2xl mt-2">
                 años de oficio

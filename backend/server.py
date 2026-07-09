@@ -186,7 +186,7 @@ def _build_user_email_html(c: ContactRequest) -> str:
       <table style="max-width:560px;margin:0 auto;background:#121620;border:1px solid #1f2a3a;">
         <tr><td style="padding:32px 32px 8px 32px;">
           <div style="color:#CBA153;font-family:Georgia,serif;font-size:24px;letter-spacing:1px;">Hipotecas San Sebastián</div>
-          <div style="color:#9CA3AF;font-size:12px;margin-top:6px;">35 años · +1.000 hipotecas · CABA &amp; GBA · USD</div>
+          <div style="color:#9CA3AF;font-size:12px;margin-top:6px;">40 años · +1.000 hipotecas · CABA &amp; GBA · USD</div>
         </td></tr>
         <tr><td style="padding:16px 32px 8px 32px;color:#F3F2ED;font-size:15px;line-height:1.6;">
           Hola {c.name},<br><br>

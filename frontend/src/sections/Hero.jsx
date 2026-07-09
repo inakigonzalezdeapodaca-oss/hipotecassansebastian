@@ -45,7 +45,7 @@ export default function Hero() {
           <span className="italic text-[#CBA153]">dólares</span> que
           construye patrimonio,
           <br className="hidden sm:block" />
-          con la seriedad de tres décadas.
+          con la seriedad de cuatro décadas.
         </motion.h1>
 
         <motion.p

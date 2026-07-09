@@ -22,7 +22,7 @@ export default function Footer() {
             <p className="mt-5 text-[#9CA3AF] text-sm leading-relaxed max-w-sm">
               Créditos hipotecarios privados en dólares estadounidenses.
               Oficinas privadas en Capital Federal (CABA) — operamos en CABA y
-              algunas zonas de Gran Buenos Aires. 35 años, +1.000 hipotecas.
+              algunas zonas de Gran Buenos Aires. 40 años, +1.000 hipotecas.
             </p>
             <a
               href="https://instagram.com/hipotecas.sansebastian"

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
 const items = [
-  { num: "35", suf: "años", label: "de trayectoria continua" },
+  { num: "40", suf: "años", label: "de trayectoria continua" },
   { num: "1.000+", suf: "", label: "hipotecas otorgadas" },
   { num: "35%", suf: "", label: "máximo financiado del valor" },
   { num: "60", suf: "cuotas", label: "plazo máximo" },
